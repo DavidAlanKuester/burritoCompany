@@ -5,47 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burrito Company</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+    <script src="app.js" ></script>
+    <script src="menu.js"></script>
     <link rel="icon" type="image/png" href="./img/logo_white.png" sizes="32x32">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body>
+<body onload="init()">
+    <div class="overall-page">
 
-    <!-- ********** Header Section Start ********** -->
-    <div class="main-product-page">
-        <div class="header-section">
-            <img class="header-img" src="./img/burritoHeader.jpg">
-            <div class="header-text-bar">
-                <div class="titel-div">
-                    <h2>Burrito Brothers Berlin-Spandau</h2>
-                    <p>The traditional mexican way</p>
+
+        <div class="main-product-page">
+            <!-- ********** Header Section Start ********** -->
+            <div class="header-section">
+                <img class="header-img" src="./img/burritoHeader.jpg">
+                <div class="header-text-bar">
+                    <div class="titel-div">
+                        <h2>Burrito Brothers Berlin-Spandau</h2>
+                        <p>The traditional mexican way</p>
+                    </div>
+                    <div class="icon-div">
+                        <div class="information-Btn">
+                            <span>i</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon-div">
-                    <div class="information-Btn">
-                        <span>i</span>
+                <div class="logo-div">
+                    <img class="logo" src="./img/logo_black.png">
+                </div>
+            </div>
+
+            <!-- ********** Header Section End ********** -->
+
+            <!-- ********** Order Section Start ********** -->
+            <div class="order-section">
+                <div class="order-Category-div">
+                    <img class="magnifying-glass-img" src="./img/magnifyingGlass.png">
+                    <a href="#">Most Popular</a>
+                    <a href="#">Tex Mex Salads</a>
+                    <a href="#">Aztec Burritos</a>
+                    <a href="#">Sunny Burrito Bowls</a>
+                    <a href="#">Vegan Dishes</a>
+                    <a href="#">Mayan Desserts</a>
+                    <a href="#">Tropical Drinks</a>
+                    <img class="arrow-img" src="./img/arrow.png">
+                </div>
+                <div class="menu-div">
+                    <div class="dish-category-div">
+                        <h3>Popular Dishes</h3>
+                    </div>
+                    <div class="dish-div">
+                        <div class="dish-div-title-div">
+                            <h3>Delicous Burrito</h3>
+                        </div>
+                        <div class="dish-div-description-div">
+                            <p>Very delicous burrito with all kinds of unhealthy stuff in it</p>
+                        </div>
+                        <div class="dish-div-variation-div">
+                            <p>Choose between spicy, sweet, BBQ or asian twist</p>
+                        </div>
+                        <div class="dish-div-price-div">
+                            <p>6,99€</p>
+                        </div>
+                        <div class="dish-div-btn-div">
+                            <img class="plus-img" src="./img/plus.png">
+                        </div>
+
+
+                    </div>
+                    <div class="dish-category-div">
+                        <h3>Tex Mex Salads</h3>
+                    </div>
+                    <div id="salads-div"></div>
+                    <div class="dish-category-div">
+                        <h3>Aztec Burritos</h3>
+                    </div>
+                    <div class="dish-category-div">
+                        <h3>Sunny Burrito Bowls</h3>
+                    </div>
+                    <div class="dish-category-div">
+                        <h3>Vegan Dishes</h3>
+                    </div>
+                    <div class="dish-category-div">
+                        <h3>Mayan Desserts</h3>
+                    </div>
+                    <div class="dish-category-div">
+                        <h3>Tropical Drinks</h3>
                     </div>
                 </div>
             </div>
-            <div class="logo-div">
-                <img class="logo" src="./img/logo_black.png">
+            <!-- ********** Order Section End ********** -->
+        </div>
+
+        <!-- ********** Footer Section Start ********** -->
+
+        <div class="footer-section">
+            <div>
+                <a href="#">Start</a>
+                <a href="#">Like</a>
+                <a href="#">Jobs</a>
+                <a href="#">Imprint</a>
+                <a href="#">Data-Protection</a>
+            </div>
+            <div>
+                <a href="#">Copyright 2020</a>
             </div>
         </div>
 
-        <!-- ********** Header Section End ********** -->
-
-        <!-- ********** Order Section Start ********** -->
-        <div class="order-Category-div">
-            <img class="magnifying-glass-img" src="./img/magnifyingGlass.png">
-            <a href="#">Most Popular</a>
-            <a href="#">Tex Mex Salads</a>
-            <a href="#">Aztec Burritos</a>
-            <a href="#">Sunny Burrito Bowls</a>
-            <a href="#">Vegan Dishes</a>
-            <a href="#">Mayan Desserts</a>
-            <a href="#">Tropical Drinks</a>
-            <img class="arrow-img" src="./img/arrow.png">
-        </div>
-        <!-- ********** Order Section End ********** -->
+        <!-- ********** Footer Section End ********** -->
     </div>
 </body>
 
