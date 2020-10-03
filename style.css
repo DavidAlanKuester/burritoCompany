@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+}
+
+.main-product-page {
+    width: 80vw;
+    height: 200vh;
+}
+
+/* ******** header-section-start ********  */
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 42.5vh;
+    position: relative;
+}
+
+.header-img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.header-text-bar {
+    width: 100%;
+    height: 12.5vh;
+    background-color: rgb(247, 245, 242);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titel-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 32px;
+}
+
+.titel-div h2 {
+    margin: 0;
+}
+
+.titel-div p {
+    margin: 0;
+}
+
+.icon-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 32px;
+}
+
+.information-Btn {
+    height: 48px;
+    width: 48px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 245, 242);
+}
+
+.information-Btn {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.information-Btn:hover {
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.logo-div {
+    position: absolute;
+    height: 15vh;
+    width: 10vw;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 35vw;
+    bottom: 4.75vh;
+}
+
+.logo {
+    height: 72px;
+    width: 40px;
+    object-fit: cover;
+}
+
+/* ******** Header-Section-End ********  */
+
+/* ******** Order-Section-Start ********  */
+
+.order-Category-div {
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(236, 232, 225);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-Category-div a {
+    margin-right: 8px;
+    margin-left: 8px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+.order-Category-div a:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.magnifying-glass-img {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    margin-left: 32px;
+}
+
+.arrow-img {
+    height: 16px;
+    width: 16px;
+    object-fit: cover;
+    margin-right: 32px;
+}
+
+/* ******** Order-Section-End ********  */
