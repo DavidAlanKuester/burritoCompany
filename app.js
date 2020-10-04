@@ -35,7 +35,7 @@ function updateDishes() {
 function popularDishes() {
     popular.forEach(function (pop) {
         let popContent = `
-        <div id="bowl-${pop.id}" class="${dishDiv}">
+        <div id="popular-${pop.id}" class="${dishDiv}">
         <div class="${titleDiv}">
         <h3>${pop.title}</h3>
         </div>
@@ -136,7 +136,7 @@ function bowlDishes() {
 function veganDishes() {
     vegan.forEach(function (veg) {
         let veganContent = `
-            <div id="bowl-${veg.id}" class="${dishDiv}">
+            <div id="vegan-${veg.id}" class="${dishDiv}">
             <div class="${titleDiv}">
             <h3>${veg.title}</h3>
             </div>
@@ -161,7 +161,7 @@ function veganDishes() {
 function siderDishes() {
     siders.forEach(function (sider) {
         let siderContent = `
-        <div id="bowl-${sider.id}" class="${dishDiv}">
+        <div id="sider-${sider.id}" class="${dishDiv}">
         <div class="${titleDiv}">
         <h3>${sider.title}</h3>
         </div>
@@ -187,7 +187,7 @@ function siderDishes() {
 function dessertDishes() {
     desserts.forEach(function (dessert) {
         let dessertContent = `
-        <div id="bowl-${dessert.id}" class="${dishDiv}">
+        <div id="dessert-${dessert.id}" class="${dishDiv}">
         <div class="${titleDiv}">
         <h3>${dessert.title}</h3>
         </div>
@@ -212,7 +212,7 @@ function dessertDishes() {
 function drinksList() {
     drinks.forEach(function (drink) {
         let drinkContent = `
-        <div id="bowl-${drink.id}" class="${dishDiv}">
+        <div id="drink-${drink.id}" class="${dishDiv}">
         <div class="${titleDiv}">
         <h3>${drink.title}</h3>
         </div>
@@ -238,7 +238,7 @@ function drinksList() {
 function alcoholList() {
     alcohol.forEach(function (alc) {
         let alcContent = `
-        <div id="bowl-${alc.id}" class="${dishDiv}">
+        <div id="alc-${alc.id}" class="${dishDiv}">
         <div class="${titleDiv}">
         <h3>${alc.title}</h3>
         </div>

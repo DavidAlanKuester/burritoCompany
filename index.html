@@ -15,11 +15,9 @@
 
 <body onload="init()">
     <div class="overall-page">
-
-
-        <div class="main-product-page">
+  <div class="main-product-page">
             <!-- ********** Header Section Start ********** -->
-            <div class="header-section">
+            <div id="header" class="header-section">
                 <img class="header-img" src="./img/burritoHeader.jpg">
                 <div class="header-text-bar">
                     <div class="titel-div">
@@ -42,20 +40,18 @@
             <!-- ********** Order Section Start ********** -->
             <div class="order-section">
                 <div class="order-Category-div">
-                    <img class="magnifying-glass-img" src="./img/magnifyingGlass.png">
-                    <a href="#">Most Popular</a>
-                    <a href="#">Tex Mex Salads</a>
-                    <a href="#">Aztec Burritos</a>
-                    <a href="#">Sunny Burrito Bowls</a>
-                    <a href="#">Vegan Dishes</a>
-                    <a href="#">Siders</a>
-                    <a href="#">Mayan Desserts</a>
-                    <a href="#">Non-Alcoholic Drinks</a>
-                    <a href="#">Alcoholic Drinks</a>
-                    <img class="arrow-img" src="./img/arrow.png">
+                    <a href="#popularAnchor">Most Popular</a>
+                    <a href="#saladAnchor">Tex Mex Salads</a>
+                    <a href="#burritoAnchor">Aztec Burritos</a>
+                    <a href="#bowlAnchor">Sunny Burrito Bowls</a>
+                    <a href="#veganAnchor">Vegan Dishes</a>
+                    <a href="#siderAnchor">Siders</a>
+                    <a href="#dessertAnchor">Mayan Desserts</a>
+                    <a href="#drinkAnchor">Non-Alcoholic Drinks</a>
+                    <a href="#alcAnchor">Alcoholic Drinks</a>
                 </div>
                 <div class="menu-div">
-                    <div class="overall-dish-category-div">
+                    <div id="popularAnchor" class="overall-dish-category-div">
                         <img class="category-img " src="./img/popular.jpg">
                         <div class="dish-category-div">
                             <h3>Popular Dishes</h3>
@@ -63,7 +59,7 @@
                     </div>
                     <div id="popular-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="saladAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/salads.jpg">
                         <div class="dish-category-div">
                             <h3>Tex Mex Salads</h3>
@@ -71,7 +67,7 @@
                     </div>
                     <div id="salads-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="burritoAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/burritoHeader.jpg">
                         <div class="dish-category-div">
                             <h3>Aztec Burritos</h3>
@@ -79,7 +75,7 @@
                     </div>
                     <div id="burritos-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="bowlAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/moreBurritos.jpg">
                         <div class="dish-category-div">
                             <h3>Sunny Burrito Bowls</h3>
@@ -87,7 +83,7 @@
                     </div>
                     <div id="bowls-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="veganAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/vegan.jpg">
                         <div class="dish-category-div">
                             <h3>Vegan Dishes</h3>
@@ -95,7 +91,7 @@
                     </div>
                     <div id="vegan-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="siderAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/chips.jpg">
                         <div class="dish-category-div">
                             <h3>Siders</h3>
@@ -103,7 +99,7 @@
                     </div>
                     <div id="siders-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="dessertAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/muffins.jpg">
                         <div class="dish-category-div">
                             <h3>Mayan Desserts</h3>
@@ -111,7 +107,7 @@
                     </div>
                     <div id="desserts-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="drinkAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/softDrinks.jpg">
                         <div class="dish-category-div">
                             <h3>Non-Alcoholic Drinks</h3>
@@ -119,7 +115,7 @@
                     </div>
                     <div id="non-alcoholic-drinks-div"></div>
 
-                    <div class="overall-dish-category-div">
+                    <div id="alcAnchor" class="overall-dish-category-div">
                         <img class="category-img" src="./img/beer.jpg">
                         <div class="dish-category-div">
                             <h3>Alcoholic Drinks</h3>
@@ -130,6 +126,38 @@
             </div>
             <!-- ********** Order Section End ********** -->
         </div>
+        <!-- ********** Shopping-Cart Section Start ********** -->
+        <div class="shoppingCart-section">
+            <div class="shoppingCart-title-div">
+                <h2>Your Orders</h2>
+            </div>
+            <div class="shoppingCart-order-div">
+                <img class="bowl-icon-img" src="./img/bowlIcon.png">
+                <p>Choose your dishes on th left and set up your menu.</p>
+            </div>
+            <div class="bill-div">
+                <div class="bill-div-children">
+                    <p>Subtotal</p>
+                    <p>Delivery costs</p>
+                    <p style="color: rgb(50,50,50) !important;">Total bill</p>
+                </div>
+                <div class="bill-div-children">
+                    <p>0,00€</p>
+                    <p>0,00€</p>
+                    <p style="color: rgb(50,50,50) !important;">0,00€</p>
+                </div>
+            </div>
+            <div class="order-btn">
+                <h3>Send order</h3>
+            </div>
+            <div class="navigation-arrow">
+                <a href="#">
+               <img class="arrowUp" src="./img/arrowUp_white.png">
+            </a>
+            </div>
+        </div>
+        <!-- ********** Shopping-Cart Section End ********** -->
+
 
         <!-- ********** Footer Section Start ********** -->
 
