@@ -1,15 +1,63 @@
+// ********** Variables for Dishes start **********
+
+let dishDiv = 'dish-div';
+let titleDiv = 'dish-div-title-div';
+let descriptionDiv = 'dish-div-description-div';
+let variationDiv = 'dish-div-variation-div';
+let priceDiv = 'dish-div-price-div';
+let btnDiv = 'dish-div-btn-div';
+let plusImg = 'plus-img';
+
+// ********** Variables for Dishes End **********
+
+// ********** Onload Function Start **********
+
 function init() {
     updateDishes()
 }
 
+// ********** Onload Function Ende **********
+
+// ********** Get all Dishes from menu.js (JSON) Start **********
+
 function updateDishes() {
-    let dishDiv = 'dish-div';
-    let titleDiv = 'dish-div-title-div';
-    let descriptionDiv = 'dish-div-description-div';
-    let variationDiv = 'dish-div-variation-div';
-    let priceDiv = 'dish-div-price-div';
-    let btnDiv = 'dish-div-btn-div';
-    let plusImg = 'plus-img';
+    popularDishes();
+    saladDishes();
+    burritoDishes();
+    bowlDishes();
+    veganDishes();
+    siderDishes();
+    dessertDishes();
+    drinksList();
+    alcoholList();
+}
+
+function popularDishes() {
+    popular.forEach(function (pop) {
+        let popContent = `
+        <div id="bowl-${pop.id}" class="${dishDiv}">
+        <div class="${titleDiv}">
+        <h3>${pop.title}</h3>
+        </div>
+        <div class="${descriptionDiv}">
+            <p>${pop.description}</p>
+        </div>
+        <div class="${variationDiv}">
+            <p>${pop.variation}</p>
+        </div>
+        <div class="${priceDiv}">
+            <p>${pop.price}€</p>
+        </div>
+        <div class="${btnDiv}">
+            <img class="${plusImg}" src="./img/plus.png">
+        </div>
+        </div>
+        `;
+        document.getElementById('popular-div').insertAdjacentHTML("beforeend", popContent);
+    });
+}
+
+function saladDishes() {
     salads.forEach(function (salad) {
         let saladContent = `
     <div id="salad-${salad.id}" class="${dishDiv}">
@@ -32,7 +80,10 @@ function updateDishes() {
     `;
         document.getElementById('salads-div').insertAdjacentHTML("beforeend", saladContent);
     });
-    burritos.forEach(function (burrito) { 
+}
+
+function burritoDishes() {
+    burritos.forEach(function (burrito) {
         let burritoContent = `
         <div id="burrito-${burrito.id}" class="${dishDiv}">
         <div class="${titleDiv}">
@@ -55,8 +106,10 @@ function updateDishes() {
         document.getElementById('burritos-div').insertAdjacentHTML("beforeend", burritoContent);
 
     });
+}
 
-    bowls.forEach(function (bowl) { 
+function bowlDishes() {
+    bowls.forEach(function (bowl) {
         let bowlContent = `
         <div id="bowl-${bowl.id}" class="${dishDiv}">
         <div class="${titleDiv}">
@@ -80,5 +133,131 @@ function updateDishes() {
     });
 }
 
+function veganDishes() {
+    vegan.forEach(function (veg) {
+        let veganContent = `
+            <div id="bowl-${veg.id}" class="${dishDiv}">
+            <div class="${titleDiv}">
+            <h3>${veg.title}</h3>
+            </div>
+            <div class="${descriptionDiv}">
+                <p>${veg.description}</p>
+            </div>
+            <div class="${variationDiv}">
+                <p>${veg.variation}</p>
+            </div>
+            <div class="${priceDiv}">
+                <p>${veg.price}€</p>
+            </div>
+            <div class="${btnDiv}">
+                <img class="${plusImg}" src="./img/plus.png">
+            </div>
+            </div>
+            `;
+        document.getElementById('vegan-div').insertAdjacentHTML("beforeend", veganContent);
+    });
+}
 
-       
+function siderDishes() {
+    siders.forEach(function (sider) {
+        let siderContent = `
+        <div id="bowl-${sider.id}" class="${dishDiv}">
+        <div class="${titleDiv}">
+        <h3>${sider.title}</h3>
+        </div>
+        <div class="${descriptionDiv}">
+            <p>${sider.description}</p>
+        </div>
+        <div class="${variationDiv}">
+            <p>${sider.variation}</p>
+        </div>
+        <div class="${priceDiv}">
+            <p>${sider.price}€</p>
+        </div>
+        <div class="${btnDiv}">
+            <img class="${plusImg}" src="./img/plus.png">
+        </div>
+        </div>
+        `;
+        document.getElementById('siders-div').insertAdjacentHTML("beforeend", siderContent);
+    });
+
+}
+
+function dessertDishes() {
+    desserts.forEach(function (dessert) {
+        let dessertContent = `
+        <div id="bowl-${dessert.id}" class="${dishDiv}">
+        <div class="${titleDiv}">
+        <h3>${dessert.title}</h3>
+        </div>
+        <div class="${descriptionDiv}">
+            <p>${dessert.description}</p>
+        </div>
+        <div class="${variationDiv}">
+            <p>${dessert.variation}</p>
+        </div>
+        <div class="${priceDiv}">
+            <p>${dessert.price}€</p>
+        </div>
+        <div class="${btnDiv}">
+            <img class="${plusImg}" src="./img/plus.png">
+        </div>
+        </div>
+        `;
+        document.getElementById('desserts-div').insertAdjacentHTML("beforeend", dessertContent);
+    });
+}
+
+function drinksList() {
+    drinks.forEach(function (drink) {
+        let drinkContent = `
+        <div id="bowl-${drink.id}" class="${dishDiv}">
+        <div class="${titleDiv}">
+        <h3>${drink.title}</h3>
+        </div>
+        <div class="${descriptionDiv}">
+            <p>${drink.description}</p>
+        </div>
+        <div class="${variationDiv}">
+            <p>${drink.variation}</p>
+        </div>
+        <div class="${priceDiv}">
+            <p>${drink.price}€</p>
+        </div>
+        <div class="${btnDiv}">
+            <img class="${plusImg}" src="./img/plus.png">
+        </div>
+        </div>
+        `;
+        document.getElementById('non-alcoholic-drinks-div').insertAdjacentHTML("beforeend", drinkContent);
+    });
+
+}
+
+function alcoholList() {
+    alcohol.forEach(function (alc) {
+        let alcContent = `
+        <div id="bowl-${alc.id}" class="${dishDiv}">
+        <div class="${titleDiv}">
+        <h3>${alc.title}</h3>
+        </div>
+        <div class="${descriptionDiv}">
+            <p>${alc.description}</p>
+        </div>
+        <div class="${variationDiv}">
+            <p>${alc.variation}</p>
+        </div>
+        <div class="${priceDiv}">
+            <p>${alc.price}€</p>
+        </div>
+        <div class="${btnDiv}">
+            <img class="${plusImg}" src="./img/plus.png">
+        </div>
+        </div>
+        `;
+        document.getElementById('alcoholic-drinks-div').insertAdjacentHTML("beforeend", alcContent);
+    });
+}
+
+// ********** Get all Dishes from menu.js (JSON) End **********
