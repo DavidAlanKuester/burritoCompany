@@ -161,7 +161,7 @@ function veganDishes() {
 function siderDishes() {
     siders.forEach(function (sider) {
         let siderContent = `
-        <div id="sider-${sider.id}" class="${dishDiv}">
+        <div  id="sider-${sider.id}" class="${dishDiv}">
         <div class="${titleDiv}">
         <h3>${sider.title}</h3>
         </div>
@@ -235,6 +235,7 @@ function drinksList() {
 
 }
 
+
 function alcoholList() {
     alcohol.forEach(function (alc) {
         let alcContent = `
@@ -261,3 +262,11 @@ function alcoholList() {
 }
 
 // ********** Get all Dishes from menu.js (JSON) End **********
+
+// ********** Info Blend Start **********
+
+function infoDiv() {
+    document.getElementById('infoDiv').classList.remove('d-none');
+}
+
+// ********** Info Blend End **********

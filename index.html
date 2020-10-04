@@ -15,7 +15,7 @@
 
 <body onload="init()">
     <div class="overall-page">
-  <div class="main-product-page">
+        <div class="main-product-page">
             <!-- ********** Header Section Start ********** -->
             <div id="header" class="header-section">
                 <img class="header-img" src="./img/burritoHeader.jpg">
@@ -24,7 +24,7 @@
                         <h2>Burrito Brothers Berlin-Spandau</h2>
                         <p>The traditional mexican way</p>
                     </div>
-                    <div class="icon-div">
+                    <div onclick="infoDiv()" class="icon-div">
                         <div class="information-Btn">
                             <span>i</span>
                         </div>
@@ -133,7 +133,7 @@
             </div>
             <div class="shoppingCart-order-div">
                 <img class="bowl-icon-img" src="./img/bowlIcon.png">
-                <p>Choose your dishes on th left and set up your menu.</p>
+                <p>Choose your dishes on the left and set up your menu.</p>
             </div>
             <div class="bill-div">
                 <div class="bill-div-children">
@@ -148,16 +148,26 @@
                 </div>
             </div>
             <div class="order-btn">
-                <h3>Send order</h3>
+                <h3>Send Order</h3>
             </div>
             <div class="navigation-arrow">
                 <a href="#">
-               <img class="arrowUp" src="./img/arrowUp_white.png">
-            </a>
+                    <img class="arrowUp" src="./img/arrowUp_white.png">
+                </a>
             </div>
         </div>
         <!-- ********** Shopping-Cart Section End ********** -->
 
+        <!-- ********** Info Blend Start********** -->
+
+        <div id="infoDiv" class="d-none">
+            <div class="info" id="info-blend">
+                <div class="infoDiv">
+                </div>
+            </div>
+        </div>
+
+        <!-- ********** Info Blend End********** -->
 
         <!-- ********** Footer Section Start ********** -->
 
