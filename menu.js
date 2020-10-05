@@ -6,6 +6,13 @@ let popular  = [
         description: 'Fresh salad with mixed vegetables and lemon juiced avocado',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, more avoacado',
         price: '6,99',
+        id: '0'
+    },
+    {
+        title: 'Mayan Avocado Salad', 
+        description: 'Fresh salad with mixed vegetables and lemon juiced avocado',
+        variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, more avoacado',
+        price: '6,99',
         id: '1'
     },
     {

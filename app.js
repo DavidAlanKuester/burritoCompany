@@ -7,6 +7,8 @@ let variationDiv = 'dish-div-variation-div';
 let priceDiv = 'dish-div-price-div';
 let btnDiv = 'dish-div-btn-div';
 let plusImg = 'plus-img';
+let dishDivExtension = 'dish-div-extension'
+let foodAmount = 0;
 
 // ********** Variables for Dishes End **********
 
@@ -16,7 +18,7 @@ function init() {
     updateDishes()
 }
 
-// ********** Onload Function Ende **********
+// ********** Onload Function End **********
 
 // ********** Get all Dishes from menu.js (JSON) Start **********
 
@@ -35,22 +37,44 @@ function updateDishes() {
 function popularDishes() {
     popular.forEach(function (pop) {
         let popContent = `
-        <div id="popular-${pop.id}" class="${dishDiv}">
-        <div class="${titleDiv}">
-        <h3>${pop.title}</h3>
-        </div>
-        <div class="${descriptionDiv}">
-            <p>${pop.description}</p>
-        </div>
-        <div class="${variationDiv}">
-            <p>${pop.variation}</p>
-        </div>
-        <div class="${priceDiv}">
-            <p>${pop.price}€</p>
-        </div>
-        <div class="${btnDiv}">
-            <img class="${plusImg}" src="./img/plus.png">
-        </div>
+        <div   id="popular-${pop.id}" class="${dishDiv}">
+            <div onclick="dishPickExtension(${pop.id})" class="dish-div-main">
+            <div id="popular-title" class="${titleDiv}">
+                <h3>${pop.title}</h3>
+            </div>
+            <div class="${descriptionDiv}">
+                 <p>${pop.description}</p>
+            </div>
+             <div class="${variationDiv}">
+                 <p>${pop.variation}</p>
+            </div>
+             <div id="popular-price" class="${priceDiv}">
+                 <p>${pop.price}€</p>
+             </div>
+            <div class="${btnDiv}">
+                 <img id="plussymbol" class="${plusImg}" src="./img/plus.png">
+                 <img id="xsymbol" class="${plusImg} d-none" src="./img/x.png">
+            </div>
+            </div>
+            <div class="${dishDivExtension} d-none" id="extended-popular-${pop.id}"> 
+                <div class="number-box">
+                    <div onclick="removeAmount(${pop.id})" style="cursor: pointer;" class="number-box-div">
+                        <span>-</span>
+                    </div>
+                    <div id="foodAmount" class="number-box-div">
+                        <span id="value" style="color: rgb(21, 116, 245) !important;">${foodAmount}</span>
+                     </div>
+                     <div onclick="addAmount(${pop.id})" style="cursor: pointer;" class="number-box-div">
+                         <span>+</span>
+                    </div>
+                 </div>
+       
+                <input class="input-order-field" id="inputPopular-${pop.id}" placeholder ="Please enter your additional wishes">
+
+                <div class="addToCartBtn">
+                <span>0,00€<span>
+                </div>
+            </div>
         </div>
         `;
         document.getElementById('popular-div').insertAdjacentHTML("beforeend", popContent);
@@ -263,6 +287,36 @@ function alcoholList() {
 
 // ********** Get all Dishes from menu.js (JSON) End **********
 
+// ********** Dish Picker Extension Start **********
+
+function dishPickExtension(id) {
+    let pop = popular[id];
+    console.log('Picked dish', pop);
+    console.log('ID is', 'extended-popular-' + pop.id);
+    document.getElementById('extended-popular-' + pop.id).classList.remove('d-none');
+    //document.getElementById('plussymbol').classList.add('d-none'); // TODO
+    //document.getElementById('xsymbol').classList.remove('d-none'); // TODO
+}
+
+function addAmount(id) {
+    let pop = popular[id];
+    let valueChange = document.getElementById('value');
+    foodAmount++;
+    valueChange.innerHTML = foodAmount;
+}
+
+function removeAmount(id) {
+    let valueChange = document.getElementById('value');
+    if (foodAmount !== 0) {
+        foodAmount--;
+    }
+    valueChange.innerHTML = foodAmount;
+}
+
+// ********** Dish Picker Extension End **********
+
+// ********** Get all Dishes from menu.js (JSON) End **********
+
 // ********** Info Blend Start **********
 
 function infoDiv() {
@@ -270,3 +324,27 @@ function infoDiv() {
 }
 
 // ********** Info Blend End **********
+
+// ********** Shopping Cart Section start **********
+
+// **** Pushing in Cart Start ****
+
+let shoppingCart = [
+    {
+        title: 'Dummy',
+        amount: '2',
+        price: '13,98'
+
+    },
+    {
+        title: 'Salad',
+        amount: '1',
+        price: '1'
+
+    }
+];
+
+// **** Pushing in Cart End ****
+
+// ********** Shopping Cart Section End **********
+

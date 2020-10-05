@@ -113,7 +113,7 @@ body {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 /* **** Information Button End **** */
@@ -157,6 +157,8 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 3px 3px -3px rgb(88, 88, 88);
+    white-space: nowrap;
+    overflow-y: auto;
 }
 
 .order-Category-div a {
@@ -232,11 +234,18 @@ body {
     border: 1px solid rgb(217, 217, 221);
     margin-top: 16px;
     border-radius: 5px;
-    cursor: pointer;
 }
 
-.dish-div:hover {
+.dish-div-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dish-div-main:hover {
     background-color: rgb(238, 238, 245);
+    cursor: pointer;
 }
 
 .dish-div-title-div {
@@ -306,6 +315,54 @@ body {
 .plus-img {
     height: 32px;
     width: 32px;
+}
+
+.dish-div-extension {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(236, 232, 225);
+}
+
+.number-box {
+    display: flex;
+    border: 1px solid rgb(217, 217, 221);
+    background-color: white;
+    width: 96px;
+    height: 32px;
+}
+
+.number-box-div {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: rgb(94, 94, 97);
+    font-weight: 700;
+
+}
+
+.input-order-field {
+    height: 48px;
+    width: 256px;
+    text-align: start;
+}
+
+.addToCartBtn {
+    height: 32px;
+    width: 192px;
+    background-color: rgb(21, 116, 245);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px; 
+    color: white !important;
+    cursor: pointer;
 }
 
 /* ******** Order-Section-End ********  */
