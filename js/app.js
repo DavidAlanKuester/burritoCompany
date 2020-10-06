@@ -9,7 +9,6 @@ let btnDiv = 'dish-div-btn-div';
 let plusImg = 'plus-img';
 let trashImg = 'trash-img';
 let dishDivExtension = 'dish-div-extension'
-let foodAmount = 0;
 let chosenDishDiv = 'chosen-dish-div'
 
 // ********** Variables for Dishes End **********
@@ -18,7 +17,7 @@ let chosenDishDiv = 'chosen-dish-div'
 
 function init() {
     updateDishes()
-    chosenDishes()
+    updateShoppingCart()
 }
 
 // ********** Onload Function End **********
@@ -79,7 +78,7 @@ function popularDishes() {
                         <span>-</span>
                     </div>
                     <div id="foodAmount" class="number-box-div">
-                        <span id="amount-counter-${pop.id}" style="color: rgb(21, 116, 245) !important;">${foodAmount}</span>
+                        <span id="amount-counter-${pop.id}" style="color: rgb(21, 116, 245) !important;">${pop.amount}</span>
                      </div>
                      <div onclick="addAmount(${pop.id})" style="cursor: pointer;" class="number-box-div">
                          <span>+</span>
@@ -88,9 +87,9 @@ function popularDishes() {
        
                 <input class="input-order-field" id="inputPopular-${pop.id}" placeholder ="Please enter your additional wishes">
 
-                <div class="addToCartBtn" onclick="addToCart()">
-                <span>${pop.price * foodAmount}€<span>
-                </div>
+                <button class="addToCartBtn" onclick="addToCart(${pop.id})">
+                <span id="overall-price-${pop.id}">${(pop.price * pop.amount).toFixed(2)}€<span>
+                </button>
             </div>
         </div>
         `;
@@ -319,6 +318,8 @@ function addAmount(id) {
     let item = findProductById(id);
     item.amount++;
     document.getElementById('amount-counter-' + id).innerHTML = item.amount;
+    let overallPrice = (item.amount * item.price).toFixed(2);
+    document.getElementById('overall-price-' + id).innerHTML = overallPrice + '€';
 }
 
 function removeAmount(id) {
@@ -327,6 +328,8 @@ function removeAmount(id) {
     if (item.amount > 0) {
         item.amount--;
     }
+    let overallPrice = (item.amount * item.price).toFixed(2);
+    document.getElementById('overall-price-' + id).innerHTML = overallPrice + '€';
     document.getElementById('amount-counter-' + id).innerHTML = item.amount;
 }
 
@@ -351,35 +354,35 @@ function infoDiv() {
 // **** Pushing in Cart Start ****
 
 let shoppingCart = [
-    {
-        amount: 2,
-        title: 'Dummy',
-        variation: '',
-        price: 13.98
-
-    },
-    {
-        amount: 1,
-        title: 'Salad',
-        variation: 'more Meat, avocado sauce',
-        price: 5.99
-
-    }
 
 ];
 
-function addToCart() {
-    let NewChosenDish = {
-        title: document.getElementById('popular-title').value,
+function addToCart(id) {
+    let item = findProductById(id);
+    let itemClone = JSON.parse(JSON.stringify(item));
+
+    // Check if item exists in shopping cart already
+    let itemInCart = shoppingCart.find((product) => {
+        return product.id == id;
+    });
+    if (itemInCart) {
+        // Just refresh amount
+        itemInCart.amount = itemInCart.amount + itemClone.amount;
+    } else {
+        // Regulary add selected item to cart
+        shoppingCart.push(itemClone);
     }
 
+    console.log('Shopping cart items are:', shoppingCart);
+    updateShoppingCart();
 }
 
 // **** Pushing in Cart End ****
 
 // ********** Get all selected Dishes from shoopingcart(JSON) start **********
 
-function chosenDishes() {
+function updateShoppingCart() {
+    document.getElementById('chosen-dishes').innerHTML = '';
     if (shoppingCart.length > 0) {
         document.getElementById('no-order-div').classList.add('d-none');
         document.getElementById('chosen-dishes').classList.remove('d-none');

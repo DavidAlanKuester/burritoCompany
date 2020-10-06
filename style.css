@@ -393,6 +393,7 @@ body {
 
 .addToCartBtn {
     height: 32px;
+    border: none;
     width: 192px;
     background-color: rgb(21, 116, 245);
     border-radius: 5px;
