@@ -20,3 +20,14 @@ function findProductById(id) {
     });
     return product;
 }
+
+function findShoppingCartItemById(id) {
+    let product = shoppingCart.find((p) => {
+        return id == p.id;
+    });
+    return product;
+}
+
+function printPrice(product) {
+    return (product.price * product.amount).toFixed(2);
+}

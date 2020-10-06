@@ -85,7 +85,8 @@ let burritos = [
         description: 'Grilled Tortilla with pulled pork and mixed vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
         price: 7.49,
-        id: '10'
+        id: '10', 
+        amount: 0
     },
     {
         title: 'Veggie Burrito', 

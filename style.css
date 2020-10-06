@@ -165,6 +165,7 @@ body {
     top: 0;
     right: 0;
     left:0;
+    z-index: 10;
 }
 
 .hide-extension {
@@ -425,7 +426,7 @@ body {
     border-left: 1px solid rgb(217, 217, 221);
     background-color: rgb(255, 255, 255);
     display: flex;
-    z-index: 2;
+    z-index: 11;
     flex-direction: column;
     box-shadow: 3px 0 3px 2px rgb(88, 88, 88);
 }
