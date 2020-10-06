@@ -76,7 +76,7 @@ function popularDishes() {
                 <input class="input-order-field" id="inputPopular-${pop.id}" placeholder ="Please enter your additional wishes">
 
                 <div class="addToCartBtn" onclick="addToCart()">
-                <span>${pop.price*pop.amount}<span>
+                <span>${pop.price*pop.amount}€<span>
                 </div>
             </div>
         </div>
@@ -355,7 +355,10 @@ let shoppingCart = [
 ];
 
 function addToCart() {
-    console.log('This works');
+    let NewChosenDish = {
+        title: document.getElementById('popular-title').value,
+    }
+
 }
 
 // **** Pushing in Cart End ****
