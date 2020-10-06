@@ -5,7 +5,6 @@ html {
 body {
     margin: 0;
     font-family: 'Playfair Display', serif;
-
 }
 
 .overall-page {
@@ -96,7 +95,7 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,7 +106,7 @@ body {
     height: 60vh;
     overflow-y: auto;
     width: 60vw;
-    background-color:  rgb(244, 243, 251);
+    background-color: rgb(244, 243, 251);
     border-radius: 16px !important;
     padding: 16px;
 }
@@ -343,7 +342,33 @@ body {
     font-size: 24px;
     color: rgb(94, 94, 97);
     font-weight: 700;
+}
 
+.number-box-cart {
+    display: flex;
+    width: 48px;
+    height: 16px;
+}
+
+
+.number-box-div-cart {
+    height: 16px;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(94, 94, 97);
+}
+
+.trash-img {
+    height: 16px;
+    width: 16px;
+}
+
+.trash-img:hover {
+    cursor: pointer;
 }
 
 .input-order-field {
@@ -360,8 +385,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 8px; 
+    margin: 8px;
     color: white !important;
+    cursor: pointer;
+    transition: 225ms;
+}
+
+.addToCartBtn:hover {
+    background-color:rgb(8, 45, 97);
     cursor: pointer;
 }
 
@@ -403,16 +434,22 @@ body {
 
 .shoppingCart-order-div {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
     min-height: 25vh;
     border-bottom: 1px solid rgb(217, 217, 221);
     margin-left: 8px;
     margin-right: 8px;
+    width: calc(100% - 16px);
 }
 
-.shoppingCart-order-div p {
+.no-order-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.no-order-div p {
     font-size: 14px;
     font-weight: 100;
     text-align: center;
@@ -420,10 +457,27 @@ body {
     margin-bottom: 32px;
 }
 
+.chosen-dish-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    width: 100%;
+}
+
 .bowl-icon-img {
     height: 32px;
     width: 72px;
     object-fit: cover;
+}
+
+.custom-order-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
 }
 
 .bill-div {

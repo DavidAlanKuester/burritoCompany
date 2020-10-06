@@ -5,29 +5,25 @@ let popular  = [
         title: 'Mayan Avocado Salad', 
         description: 'Fresh salad with mixed vegetables and lemon juiced avocado',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, more avoacado',
-        price: '6,99',
-        id: '0'
-    },
-    {
-        title: 'Mayan Avocado Salad', 
-        description: 'Fresh salad with mixed vegetables and lemon juiced avocado',
-        variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, more avoacado',
-        price: '6,99',
-        id: '1'
+        price: 6.99,
+        id: '0',
+        amount: 0
     },
     {
         title: 'Beef Burrito', 
         description: 'Grilled Tortilla with grilled Beef and mixed vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,99',
-        id: '2'
+        price: 7.99,
+        id: '1',
+        amount: 0
     },
     {
         title: 'Pulled Pork Burrito Bowl', 
         description: 'Grilled Beef, mixed vegetables and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,49',
-        id: '3'
+        price: 7.49,
+        id: '2',
+        amount: 0
     },
 ];
 
@@ -36,36 +32,36 @@ let salads = [
         title: 'Aztec Chicken Salad', 
         description: 'Fresh salad with mixed vegetables and juicy slices of chicken breast.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '6,49',
-        id: '1'
+        price: 6.49,
+        id: '0'
     },
     {
         title: 'Mexican Beef Salad', 
         description: 'Fresh salad with mixed vegetables and juicy slices of Beef.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '6,99',
-        id: '2'
+        price: 6.99,
+        id: '1'
     },
     {
         title: 'Mayan Avocado Salad', 
         description: 'Fresh salad with mixed vegetables and lemon juiced avocado',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, more avoacado',
-        price: '6,99',
-        id: '3'
+        price: 6.99,
+        id: '2'
     },
     {
         title: 'Veggi Salad', 
         description: 'Fresh salad with mixed vegetables, eggs and cheese',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more cheese or eggs',
-        price: '5,99',
-        id: '4'
+        price: 5.99,
+        id: '3'
     },
     {
         title: 'Vegan Salad', 
         description: 'Fresh salad with mixed vegetables',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, add avoacado',
-        price: '5,99',
-        id: '5'
+        price: 5.99,
+        id: '4'
     }
 ];
 
@@ -74,36 +70,36 @@ let burritos = [
         title: 'Chicken Burrito', 
         description: 'Grilled Tortilla with grilled Chicken and mixed vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,49',
-        id: '1'
+        price: 7.49,
+        id: '0'
     },
     {
         title: 'Beef Burrito', 
         description: 'Grilled Tortilla with grilled Beef and mixed vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,99',
-        id: '2'
+        price: 7.99,
+        id: '1'
     },
     {
         title: 'Pulled Pork Burrito', 
         description: 'Grilled Tortilla with pulled pork and mixed vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,49',
-        id: '3'
+        price: 7.49,
+        id: '2'
     },
     {
         title: 'Veggie Burrito', 
         description: 'Grilled Cheese with pulled pork and mixed vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '6,99',
-        id: '4'
+        price: 6.99,
+        id: '3'
     },
     {
         title: 'Vegan Burrito', 
         description: 'Grilled Tortilla with grilled vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '5,99',
-        id: '5'
+        price: 5.99,
+        id: '4'
     }
 ];
 
@@ -112,36 +108,36 @@ let bowls = [
         title: 'Chicken Burrito Bowl', 
         description: 'Grilled Chicken, mixed vegetables and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,49',
-        id: '1'
+        price: 7.49,
+        id: '0'
     },
     {
         title: 'Beef Burrito Bowl', 
         description: 'Grilled Beef, mixed vegetables and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,99',
-        id: '2'
+        price: 7.99,
+        id: '1'
     },
     {
         title: 'Pulled Pork Burrito Bowl', 
         description: 'Grilled Beef, mixed vegetables and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '7,49',
-        id: '3'
+        price: 7.49,
+        id: '2'
     },
     {
         title: 'Veggie Bowl', 
         description: 'Grilled Cheese, mixed vegetables and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '6,99',
-        id: '4'
+        price: 6.99,
+        id: '3'
     },
     {
         title: 'Vegan Bowl', 
         description: 'Mixed vegetables, Beans and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '5,99',
-        id: '5'
+        price: 5.99,
+        id: '4'
     }
 ];
 
@@ -150,134 +146,133 @@ let vegan = [
         title: 'Vegan Salad', 
         description: 'Fresh salad with mixed vegetables',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, add avoacado',
-        price: '5,99',
-        id: '1'
+        price: 5.99,
+        id: '0'
     },
     {
         title: 'Vegan Burrito', 
         description: 'Grilled Tortilla with grilled vegetables.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '5,99',
-        id: '2'
+        price: 5.99,
+        id: '1'
     },
     {
         title: 'Vegan Bowl', 
         description: 'Mixed vegetables, Beans and rice.',
         variation: 'Variatons: Chipotle-tomato sauce, Habanero sauce, Avocado sauce, more meat',
-        price: '6,99',
-        id: '3'
+        price: 6.99,
+        id: '2'
     }
 ];
 
 let siders = [
     {
         title: 'Tortilla Chips Nature', 
-        price: '1,49',
-        id: '1'
+        price: 1.49,
+        id: '0'
     },
     {
         title: 'Cheesy Tortilla Chips', 
-        price: '2,99'
-        ,
-        id: '2'
+        price: 2.99,
+        id: '1'
     },
     {
         title: 'Tortilla Chips with Creme', 
-        price: '2,99',
-        id: '3'
+        price: 2.99,
+        id: '2'
     },
     {
         title: 'Tortilla Chips with Guacemole', 
-        price: '2,99',
-        id: '4'
+        price: 2.99,
+        id: '3'
     },
     {
         title: 'Tortilla Chips with Classic Salsa', 
-        price: '2,99',
-        id: '5'
+        price: 2.99,
+        id: '4'
     },
     {
         title: 'Tortilla Chips with Chili Salsa', 
-        price: '2,99',
-        id: '6'
+        price: 2.99,
+        id: '5'
     },
 ];
 
 let desserts = [
     {
         title: 'Texas Brownie', 
-        price: '3,99',
-        id: '1'
+        price: 3.99,
+        id: '0'
     },
     {
         title: 'Mayan Muffin', 
-        price: '3,99',
-        id: '2'
+        price: 3.99,
+        id: '1'
     }
 ];
 
 let drinks = [
     {
         title: 'Coca Cola 1L', 
-        price: '2,99',
-        id: '1'
+        price: 2.99,
+        id: '0'
     },
     {
         title: 'Fanta 1L', 
-        price: '2,99',
-        id: '2'
+        price: 2.99,
+        id: '1'
     },
     {
         title: 'Sprite 1L', 
-        price: '2,99',
-        id: '3'
+        price: 2.99,
+        id: '2'
     },
     {
         title: 'Bonaqua 1L', 
-        price: '1,99',
-        id: '4'
+        price: 2.99,
+        id: '3'
     },
     {
         title: 'Ice Tea Peach 1L', 
-        price: '2,99',
-        id: '5'
+        price: 2.99,
+        id: '4'
     },
     {
         title: 'Ice Tea Lemon 1L', 
-        price: '2,99',
-        id: '6'
+        price: 2.99,
+        id: '5'
     },
     {
         title: 'Mountain Dew 1L', 
-        price: '2,99',
-        id: '7'
+        price: 2.99,
+        id: '6'
     },
     {
         title: 'Club Mate', 
-        price: '1,99',
-        id: '8'
+        price: 1.99,
+        id: '7'
     },
     {
         title: 'Housemade Soda', 
-        price: '2,99',
-        id: '9'
+        price: 2.99,
+        id: '8'
     },
 ];
 
 let alcohol = [
     {
         title: 'Warsteiner 0.5L', 
-        price: '2,99',
-        id: '1'
+        price: 2.99,
+        id: '0'
     },
     {
         title: 'Becks 0.5L', 
-        price: '2,99',
-        id: '2'
+        price: 2.99,
+        id: '1'
     },
     {
         title: 'Becks Green Lemon 0.5L', 
-        price: '2,99',
-        id: '3'
+        price: 2.99,
+        id: '2'
     },
 ];

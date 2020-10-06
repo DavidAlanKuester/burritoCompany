@@ -7,8 +7,10 @@ let variationDiv = 'dish-div-variation-div';
 let priceDiv = 'dish-div-price-div';
 let btnDiv = 'dish-div-btn-div';
 let plusImg = 'plus-img';
+let trashImg = 'trash-img';
 let dishDivExtension = 'dish-div-extension'
 let foodAmount = 0;
+let chosenDishDiv = 'chosen-dish-div'
 
 // ********** Variables for Dishes End **********
 
@@ -16,6 +18,7 @@ let foodAmount = 0;
 
 function init() {
     updateDishes()
+    chosenDishes()
 }
 
 // ********** Onload Function End **********
@@ -36,8 +39,9 @@ function updateDishes() {
 
 function popularDishes() {
     popular.forEach(function (pop) {
+        let newAmount = 0;
         let popContent = `
-        <div   id="popular-${pop.id}" class="${dishDiv}">
+        <div  id="popular-${pop.id}" class="${dishDiv}">
             <div onclick="dishPickExtension(${pop.id})" class="dish-div-main">
             <div id="popular-title" class="${titleDiv}">
                 <h3>${pop.title}</h3>
@@ -62,7 +66,7 @@ function popularDishes() {
                         <span>-</span>
                     </div>
                     <div id="foodAmount" class="number-box-div">
-                        <span id="value" style="color: rgb(21, 116, 245) !important;">${foodAmount}</span>
+                        <span id="value" style="color: rgb(21, 116, 245) !important;">${newAmount}</span>
                      </div>
                      <div onclick="addAmount(${pop.id})" style="cursor: pointer;" class="number-box-div">
                          <span>+</span>
@@ -71,8 +75,8 @@ function popularDishes() {
        
                 <input class="input-order-field" id="inputPopular-${pop.id}" placeholder ="Please enter your additional wishes">
 
-                <div class="addToCartBtn">
-                <span>0,00€<span>
+                <div class="addToCartBtn" onclick="addToCart()">
+                <span>${pop.price*pop.amount}<span>
                 </div>
             </div>
         </div>
@@ -299,18 +303,17 @@ function dishPickExtension(id) {
 }
 
 function addAmount(id) {
-    let pop = popular[id];
     let valueChange = document.getElementById('value');
-    foodAmount++;
-    valueChange.innerHTML = foodAmount;
+    newAmount++;
+    valueChange.innerHTML = newAmount;
 }
 
 function removeAmount(id) {
     let valueChange = document.getElementById('value');
-    if (foodAmount !== 0) {
-        foodAmount--;
+    if (newAmount !== 0) {
+        newAmount--;
     }
-    valueChange.innerHTML = foodAmount;
+    valueChange.innerHTML = newAmount;
 }
 
 // ********** Dish Picker Extension End **********
@@ -323,28 +326,74 @@ function infoDiv() {
     document.getElementById('infoDiv').classList.remove('d-none');
 }
 
+
+
 // ********** Info Blend End **********
 
 // ********** Shopping Cart Section start **********
+
+// ********** Get all selected Dishes from shoopingcart(JSON) start **********
 
 // **** Pushing in Cart Start ****
 
 let shoppingCart = [
     {
-        title: 'Dummy',
         amount: '2',
-        price: '13,98'
+        title: 'Dummy',
+        variation: '',
+        price: 13.98
 
     },
     {
-        title: 'Salad',
         amount: '1',
-        price: '1'
+        title: 'Salad',
+        variation: 'more Meat, avocado sauce',
+        price: 5.99
 
     }
+    
 ];
 
+function addToCart() {
+    console.log('This works');
+}
+
 // **** Pushing in Cart End ****
+
+// ********** Get all selected Dishes from shoopingcart(JSON) start **********
+
+function chosenDishes() {
+    if (shoppingCart.length > 0) {
+        document.getElementById('no-order-div').classList.add('d-none');
+        document.getElementById('chosen-dishes').classList.remove('d-none');
+        shoppingCart.forEach(function(chosenDish) {
+        
+            let chosenDishcontent = `
+            <div class="${chosenDishDiv}"> 
+            <div class="number-box-cart"> 
+            <div onclick="removeAmount(${chosenDish.amount})" style="cursor: pointer;" class="number-box-div-cart">
+                <span>-</span>
+             </div>
+             <div id="foodAmount" class="number-box-div-cart">
+                <span id="value" style="color: rgb(21, 116, 245) !important; font-size: 12px !important">${chosenDish.amount}x</span>
+            </div>
+            <div onclick="addAmount(${chosenDish.amount})" style="cursor: pointer;" class="number-box-div-cart">
+                <span>+</span>
+            </div>
+            </div>
+            <span style="font-size: 12px;" >${chosenDish.title}</span>
+            <span style="font-size: 12px;">${chosenDish.price}</span>
+            <img class="${trashImg}" src="./img/trash.png">
+            </div>`;
+            document.getElementById('chosen-dishes').insertAdjacentHTML("beforeend", chosenDishcontent);
+        });
+    } else {
+        document.getElementById('no-order-div').classList.remove('d-none');
+        document.getElementById('chosen-dishes').classList.add('d-none');
+    }
+}
+
+// ********** Get all selected Dishes from shoopingcart(JSON) End **********
 
 // ********** Shopping Cart Section End **********
 
