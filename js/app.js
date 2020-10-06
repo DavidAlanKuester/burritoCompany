@@ -23,6 +23,20 @@ function init() {
 
 // ********** Onload Function End **********
 
+// ********** Category OnScroll Start **********
+
+function scrollingChange() {
+    window.onscroll = function () {
+        if (window.pageYOffset > 400) {
+            document.getElementById('order-category-div').classList.add('onscroll-category-order-div');
+        } else {
+            document.getElementById('order-category-div').classList.remove('onscroll-category-order-div');
+        }
+    }
+}
+
+// ********** Category OnScroll End **********
+
 // ********** Get all Dishes from menu.js (JSON) Start **********
 
 function updateDishes() {
@@ -39,10 +53,9 @@ function updateDishes() {
 
 function popularDishes() {
     popular.forEach(function (pop) {
-        let newAmount = 0;
         let popContent = `
         <div  id="popular-${pop.id}" class="${dishDiv}">
-            <div onclick="dishPickExtension(${pop.id})" class="dish-div-main">
+            <div onclick="toggleExtension(${pop.id})" class="dish-div-main">
             <div id="popular-title" class="${titleDiv}">
                 <h3>${pop.title}</h3>
             </div>
@@ -60,13 +73,13 @@ function popularDishes() {
                  <img id="xsymbol" class="${plusImg} d-none" src="./img/x.png">
             </div>
             </div>
-            <div class="${dishDivExtension} d-none" id="extended-popular-${pop.id}"> 
+            <div class="${dishDivExtension} hide-extension" id="extended-popular-${pop.id}"> 
                 <div class="number-box">
                     <div onclick="removeAmount(${pop.id})" style="cursor: pointer;" class="number-box-div">
                         <span>-</span>
                     </div>
                     <div id="foodAmount" class="number-box-div">
-                        <span id="value" style="color: rgb(21, 116, 245) !important;">${newAmount}</span>
+                        <span id="amount-counter-${pop.id}" style="color: rgb(21, 116, 245) !important;">${foodAmount}</span>
                      </div>
                      <div onclick="addAmount(${pop.id})" style="cursor: pointer;" class="number-box-div">
                          <span>+</span>
@@ -76,7 +89,7 @@ function popularDishes() {
                 <input class="input-order-field" id="inputPopular-${pop.id}" placeholder ="Please enter your additional wishes">
 
                 <div class="addToCartBtn" onclick="addToCart()">
-                <span>${pop.price*pop.amount}€<span>
+                <span>${pop.price * foodAmount}€<span>
                 </div>
             </div>
         </div>
@@ -293,27 +306,28 @@ function alcoholList() {
 
 // ********** Dish Picker Extension Start **********
 
-function dishPickExtension(id) {
+function toggleExtension(id) {
     let pop = popular[id];
     console.log('Picked dish', pop);
     console.log('ID is', 'extended-popular-' + pop.id);
-    document.getElementById('extended-popular-' + pop.id).classList.remove('d-none');
+    toggleClass('extended-popular-' + pop.id, 'hide-extension');
     //document.getElementById('plussymbol').classList.add('d-none'); // TODO
     //document.getElementById('xsymbol').classList.remove('d-none'); // TODO
 }
 
 function addAmount(id) {
-    let valueChange = document.getElementById('value');
-    newAmount++;
-    valueChange.innerHTML = newAmount;
+    let item = findProductById(id);
+    item.amount++;
+    document.getElementById('amount-counter-' + id).innerHTML = item.amount;
 }
 
 function removeAmount(id) {
-    let valueChange = document.getElementById('value');
-    if (newAmount !== 0) {
-        newAmount--;
+    let item = findProductById(id);
+
+    if (item.amount > 0) {
+        item.amount--;
     }
-    valueChange.innerHTML = newAmount;
+    document.getElementById('amount-counter-' + id).innerHTML = item.amount;
 }
 
 // ********** Dish Picker Extension End **********
@@ -338,20 +352,20 @@ function infoDiv() {
 
 let shoppingCart = [
     {
-        amount: '2',
+        amount: 2,
         title: 'Dummy',
         variation: '',
         price: 13.98
 
     },
     {
-        amount: '1',
+        amount: 1,
         title: 'Salad',
         variation: 'more Meat, avocado sauce',
         price: 5.99
 
     }
-    
+
 ];
 
 function addToCart() {
@@ -369,8 +383,8 @@ function chosenDishes() {
     if (shoppingCart.length > 0) {
         document.getElementById('no-order-div').classList.add('d-none');
         document.getElementById('chosen-dishes').classList.remove('d-none');
-        shoppingCart.forEach(function(chosenDish) {
-        
+        shoppingCart.forEach(function (chosenDish) {
+
             let chosenDishcontent = `
             <div class="${chosenDishDiv}"> 
             <div class="number-box-cart"> 

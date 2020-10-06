@@ -160,6 +160,17 @@ body {
     overflow-y: auto;
 }
 
+.onscroll-category-order-div {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left:0;
+}
+
+.hide-extension {
+    height: 0 !important;
+}
+
 .order-Category-div a {
     margin-right: 8px;
     margin-left: 8px;
@@ -189,6 +200,8 @@ body {
 .menu-div {
     width: calc(100% - 64px);
 }
+
+
 
 .overall-dish-category-div {
     width: 100%;
@@ -317,6 +330,8 @@ body {
 }
 
 .dish-div-extension {
+    transition: all 225ms ease-in-out;
+    overflow: hidden;
     height: 10vh;
     width: 100%;
     display: flex;
