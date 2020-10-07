@@ -124,6 +124,7 @@ function alcoholList() {
 function toggleExtension(id) {
     let product = findProductById(id);
     toggleClass('extended-product-' + product.id, 'hide-extension');
+    toggleClass('plussymbol-' + product.id, 'plus-img-rotate');
     //document.getElementById('plussymbol').classList.add('d-none'); // TODO
     //document.getElementById('xsymbol').classList.remove('d-none'); // TODO
 }

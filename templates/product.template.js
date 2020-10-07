@@ -15,8 +15,7 @@ function generateProductTemplate(product) {
          <p>${product.price}€</p>
      </div>
     <div class="${btnDiv}">
-         <img id="plussymbol" class="${plusImg}" src="./img/plus.png">
-         <img id="xsymbol" class="${plusImg} d-none" src="./img/x.png">
+         <img id="plussymbol-${product.id}" class="${plusImg}" src="./img/plus.png">
     </div>
     </div>
     <div class="${dishDivExtension} hide-extension" id="extended-product-${product.id}"> 

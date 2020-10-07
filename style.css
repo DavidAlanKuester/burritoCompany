@@ -328,6 +328,11 @@ body {
 .plus-img {
     height: 32px;
     width: 32px;
+    transition: 500ms;
+}
+
+.plus-img-rotate {
+    transform: rotate(225deg);
 }
 
 .dish-div-extension {
