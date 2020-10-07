@@ -165,25 +165,11 @@ function infoDiv() {
 
 // **** Pushing in Cart Start ****
 
-let shoppingCart = [
-
-];
+let shoppingCart = new ShoppingCart();
 
 function addToCart(id) {
     let product = findProductById(id);
-    let productClone = JSON.parse(JSON.stringify(product));
-
-    // Check if product exists in shopping cart already
-    let productInCart = shoppingCart.find((product) => {
-        return product.id == id;
-    });
-    if (productInCart) {
-        // Just refresh amount
-        productInCart.amount = productInCart.amount + productClone.amount;
-    } else {
-        // Regulary add selected product to cart
-        shoppingCart.push(productClone);
-    }
+    shoppingCart.addProduct(product);
     updateShoppingCart();
     updateTotalCosts();
 
@@ -196,26 +182,20 @@ function addToCart(id) {
 
 function addShoppingCartProductAmount(id) {
     let product = findShoppingCartItemById(id);
-    product.amount++;
-    document.getElementById('foodAmountCart-' + id).innerHTML = product.amount + 'x';
-    document.getElementById('overall-shopping-cart-price-' + id).innerHTML = printPrice(product) + '€';
+    shoppingCart.addProductAmount(product);
     updateTotalCosts();
 }
 
 function removeShoppingCartProductAmount(id) {
     let product = findShoppingCartItemById(id);
-    if (product.amount > 0) {
-        product.amount--;
-    }
-    document.getElementById('foodAmountCart-' + id).innerHTML = product.amount + 'x';
-    document.getElementById('overall-shopping-cart-price-' + id).innerHTML = printPrice(product) + '€';
+    shoppingCart.removeProductAmount(product);
     updateTotalCosts();
 }
 
 function updateTotalCosts() {
     let subtotal = 0;
 
-    shoppingCart.forEach((product) => {
+    shoppingCart.products.forEach((product) => {
         subtotal += product.price * product.amount;
     });
 
@@ -233,9 +213,7 @@ function updateTotalCosts() {
  * @param {string} id - Id of the Product that should be removed
  */
 function deleteFromShoppingCart(id) {
-    shoppingCart = shoppingCart.filter((p) => {
-        return p.id != id;
-    });
+    shoppingCart.removeProduct(id);
     updateShoppingCart();
     updateTotalCosts();
 }
@@ -246,29 +224,12 @@ function deleteFromShoppingCart(id) {
 
 function updateShoppingCart() {
     document.getElementById('chosen-dishes').innerHTML = '';
-    if (shoppingCart.length > 0) {
+    if (shoppingCart.products.length > 0) {
         document.getElementById('no-order-div').classList.add('d-none');
         document.getElementById('chosen-dishes').classList.remove('d-none');
-        shoppingCart.forEach(function (chosenDish) {
-
-            let chosenDishcontent = `
-            <div class="${chosenDishDiv}"> 
-            <div class="number-box-cart"> 
-            <div onclick="removeShoppingCartProductAmount(${chosenDish.id})" style="cursor: pointer;" class="number-box-div-cart">
-                <span>-</span>
-             </div>
-             <div class="number-box-div-cart">
-                <span id="foodAmountCart-${chosenDish.id}" style="color: rgb(21, 116, 245) !important; font-size: 12px !important">${chosenDish.amount}x</span>
-            </div>
-            <div onclick="addShoppingCartProductAmount(${chosenDish.id})" style="cursor: pointer;" class="number-box-div-cart">
-                <span>+</span>
-            </div>
-            </div>
-            <span style="font-size: 12px;" >${chosenDish.title}</span>
-            <span style="font-size: 12px;" id="overall-shopping-cart-price-${chosenDish.id}">${printPrice(chosenDish)}€</span>
-            <img style="cursor: pointer;" onclick="deleteFromShoppingCart(${chosenDish.id})" class="${trashImg}" src="./img/trash.png">
-            </div>`;
-            document.getElementById('chosen-dishes').insertAdjacentHTML("beforeend", chosenDishcontent);
+        shoppingCart.products.forEach(function (product) {
+            let productContent = generateShoppingCartProductTemplate(product);
+            document.getElementById('chosen-dishes').insertAdjacentHTML("beforeend", productContent);
         });
     } else {
         document.getElementById('no-order-div').classList.remove('d-none');

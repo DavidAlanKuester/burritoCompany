@@ -21,7 +21,7 @@ function toggleClass(elementId, className) {
 }
 
 function findShoppingCartItemById(id) {
-    let product = shoppingCart.find((p) => {
+    let product = shoppingCart.products.find((p) => {
         return id == p.id;
     });
     return product;
