@@ -19,6 +19,7 @@ function init() {
     updateDishes();
     updateShoppingCart();
     scrollingChange();
+    document.getElementById("order-btn").disabled = true; 
 }
 
 // ********** Onload Function End **********
@@ -212,6 +213,7 @@ function deleteFromShoppingCart(id) {
 function updateShoppingCart() {
     document.getElementById('chosen-dishes').innerHTML = '';
     if (shoppingCart.products.length > 0) {
+        document.getElementById('order-btn').disabled = false; 
         document.getElementById('no-order-div').classList.add('d-none');
         document.getElementById('chosen-dishes').classList.remove('d-none');
         shoppingCart.products.forEach(function (product) {
@@ -221,10 +223,23 @@ function updateShoppingCart() {
     } else {
         document.getElementById('no-order-div').classList.remove('d-none');
         document.getElementById('chosen-dishes').classList.add('d-none');
+        document.getElementById('order-btn').disabled = true; 
     }
 }
 
 // ********** Get all selected Product from shoopingcart(JSON) End **********
+
+
+// ********** Send Order Btn Start **********
+
+
+function sendOrder() {
+    shoppingCart.products.splice(0,shoppingCart.products.length);
+    updateShoppingCart();
+}
+
+// ********** Send Order Btn End **********
+
 
 // ********** Shopping Cart Section End **********
 

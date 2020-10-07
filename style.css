@@ -518,9 +518,17 @@ body {
     margin-bottom: 8px;
 }
 
+.responsive-order-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15vh
+}
+
 .order-btn {
     height: 10vh;
-    width: calc(100%-16px);
+    width: 15vw;
     background-color: rgb(217, 217, 221);
     border-radius: 5px;
     display: flex;
@@ -530,8 +538,9 @@ body {
 }
 
 .order-btn:hover {
-    cursor: no-drop;
+    cursor: pointer
 }
+
 
 .navigation-arrow {
     position: absolute;
