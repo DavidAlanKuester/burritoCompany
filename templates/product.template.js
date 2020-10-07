@@ -6,10 +6,10 @@ function generateProductTemplate(product) {
         <h3>${product.title}</h3>
     </div>
     <div class="${descriptionDiv}">
-         <p>${product.description}</p>
+         <p>${product.description || ''}</p>
     </div>
      <div class="${variationDiv}">
-         <p>${product.variation}</p>
+         <p>${product.variation || ''}</p>
     </div>
      <div id="popular-price" class="${priceDiv}">
          <p>${product.price}€</p>

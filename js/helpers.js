@@ -1,5 +1,5 @@
 function findProductById(id) {
-    let allProducts = [...popular, ...salads, ...burritos, ...bowls, ...vegan, ...siders, ...desserts, ...drinks, ...alcohol];
+    let allProducts = [...popular, ...salads, ...burritos, ...bowls, ...vegan, ...sideDish, ...desserts, ...drinks, ...alcohol];
     let product = allProducts.find((p) => {
         return id == p.id;
     });
@@ -18,13 +18,6 @@ function toggleClass(elementId, className) {
     } else {
         classList.add(className);
     }
-}
-
-function findShoppingCartItemById(id) {
-    let product = shoppingCart.products.find((p) => {
-        return id == p.id;
-    });
-    return product;
 }
 
 function printPrice(product) {

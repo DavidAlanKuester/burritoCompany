@@ -88,8 +88,8 @@ function veganDishes() {
 }
 
 function siderDishes() {
-    siders.forEach(function (sider) {
-        let siderContent = generateProductTemplate(sider);
+    sideDish.forEach(function (side) {
+        let siderContent = generateProductTemplate(side);
         document.getElementById('siders-div').insertAdjacentHTML("beforeend", siderContent);
     });
 
@@ -181,31 +181,17 @@ function addToCart(id) {
 
 
 function addShoppingCartProductAmount(id) {
-    let product = findShoppingCartItemById(id);
-    shoppingCart.addProductAmount(product);
+    shoppingCart.addProductAmount(id);
     updateTotalCosts();
 }
 
 function removeShoppingCartProductAmount(id) {
-    let product = findShoppingCartItemById(id);
-    shoppingCart.removeProductAmount(product);
+    shoppingCart.removeProductAmount(id);
     updateTotalCosts();
 }
 
 function updateTotalCosts() {
-    let subtotal = 0;
-
-    shoppingCart.products.forEach((product) => {
-        subtotal += product.price * product.amount;
-    });
-
-    let delivery_costs = 4.00;
-    let total_bill = subtotal + delivery_costs;
-
-    document.getElementById('costs-subtotal').innerHTML = subtotal.toFixed(2) + '€';
-    document.getElementById('costs-delivery').innerHTML = delivery_costs.toFixed(2) + '€';
-    document.getElementById('costs-total').innerHTML = total_bill.toFixed(2) + '€';
-
+    shoppingCart.updateCosts();
 }
 
 /**
