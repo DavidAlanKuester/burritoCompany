@@ -26,7 +26,7 @@ function init() {
 // ********** Category OnScroll Start **********
 
 function scrollingChange() {
-    window.onscroll = function () {
+    window.onscroll = () => {
         if (window.scrollY > 400) {
             document.getElementById('order-category-div').classList.add('onscroll-category-order-div');
         } else {
@@ -37,7 +37,7 @@ function scrollingChange() {
 
 // ********** Category OnScroll End **********
 
-// ********** Get all Dishes from menu.js (JSON) Start **********
+// ********** Get all Products from menu.js (JSON) Start **********
 
 function updateDishes() {
     popularDishes();
@@ -59,26 +59,8 @@ function popularDishes() {
 }
 
 function saladDishes() {
-    salads.forEach(function (salad) {
-        let saladContent = `
-    <div id="salad-${salad.id}" class="${dishDiv}">
-    <div class="${titleDiv}">
-    <h3>${salad.title}</h3>
-    </div>
-    <div class="${descriptionDiv}">
-        <p>${salad.description}</p>
-    </div>
-    <div class="${variationDiv}">
-        <p>${salad.variation}</p>
-    </div>
-    <div class="${priceDiv}">
-        <p>${salad.price}€</p>
-    </div>
-    <div class="${btnDiv}">
-        <img class="${plusImg}" src="./img/plus.png">
-    </div>
-    </div>
-    `;
+    salads.forEach((salad) => {
+        let saladContent = generateProductTemplate(salad);
         document.getElementById('salads-div').insertAdjacentHTML("beforeend", saladContent);
     });
 }
@@ -92,76 +74,22 @@ function burritoDishes() {
 }
 
 function bowlDishes() {
-    bowls.forEach(function (bowl) {
-        let bowlContent = `
-        <div id="bowl-${bowl.id}" class="${dishDiv}">
-        <div class="${titleDiv}">
-        <h3>${bowl.title}</h3>
-        </div>
-        <div class="${descriptionDiv}">
-            <p>${bowl.description}</p>
-        </div>
-        <div class="${variationDiv}">
-            <p>${bowl.variation}</p>
-        </div>
-        <div class="${priceDiv}">
-            <p>${bowl.price}€</p>
-        </div>
-        <div class="${btnDiv}">
-            <img class="${plusImg}" src="./img/plus.png">
-        </div>
-        </div>
-        `;
+    bowls.forEach((bowl) => {
+        let bowlContent = generateProductTemplate(bowl);
         document.getElementById('bowls-div').insertAdjacentHTML("beforeend", bowlContent);
     });
 }
 
 function veganDishes() {
     vegan.forEach(function (veg) {
-        let veganContent = `
-            <div id="vegan-${veg.id}" class="${dishDiv}">
-            <div class="${titleDiv}">
-            <h3>${veg.title}</h3>
-            </div>
-            <div class="${descriptionDiv}">
-                <p>${veg.description}</p>
-            </div>
-            <div class="${variationDiv}">
-                <p>${veg.variation}</p>
-            </div>
-            <div class="${priceDiv}">
-                <p>${veg.price}€</p>
-            </div>
-            <div class="${btnDiv}">
-                <img class="${plusImg}" src="./img/plus.png">
-            </div>
-            </div>
-            `;
+        let veganContent = generateProductTemplate(veg);
         document.getElementById('vegan-div').insertAdjacentHTML("beforeend", veganContent);
     });
 }
 
 function siderDishes() {
     siders.forEach(function (sider) {
-        let siderContent = `
-        <div  id="sider-${sider.id}" class="${dishDiv}">
-        <div class="${titleDiv}">
-        <h3>${sider.title}</h3>
-        </div>
-        <div class="${descriptionDiv}">
-            <p>${sider.description}</p>
-        </div>
-        <div class="${variationDiv}">
-            <p>${sider.variation}</p>
-        </div>
-        <div class="${priceDiv}">
-            <p>${sider.price}€</p>
-        </div>
-        <div class="${btnDiv}">
-            <img class="${plusImg}" src="./img/plus.png">
-        </div>
-        </div>
-        `;
+        let siderContent = generateProductTemplate(sider);
         document.getElementById('siders-div').insertAdjacentHTML("beforeend", siderContent);
     });
 
@@ -169,116 +97,57 @@ function siderDishes() {
 
 function dessertDishes() {
     desserts.forEach(function (dessert) {
-        let dessertContent = `
-        <div id="dessert-${dessert.id}" class="${dishDiv}">
-        <div class="${titleDiv}">
-        <h3>${dessert.title}</h3>
-        </div>
-        <div class="${descriptionDiv}">
-            <p>${dessert.description}</p>
-        </div>
-        <div class="${variationDiv}">
-            <p>${dessert.variation}</p>
-        </div>
-        <div class="${priceDiv}">
-            <p>${dessert.price}€</p>
-        </div>
-        <div class="${btnDiv}">
-            <img class="${plusImg}" src="./img/plus.png">
-        </div>
-        </div>
-        `;
+        let dessertContent = generateProductTemplate(dessert);
         document.getElementById('desserts-div').insertAdjacentHTML("beforeend", dessertContent);
     });
 }
 
 function drinksList() {
     drinks.forEach(function (drink) {
-        let drinkContent = `
-        <div id="drink-${drink.id}" class="${dishDiv}">
-        <div class="${titleDiv}">
-        <h3>${drink.title}</h3>
-        </div>
-        <div class="${descriptionDiv}">
-            <p>${drink.description}</p>
-        </div>
-        <div class="${variationDiv}">
-            <p>${drink.variation}</p>
-        </div>
-        <div class="${priceDiv}">
-            <p>${drink.price}€</p>
-        </div>
-        <div class="${btnDiv}">
-            <img class="${plusImg}" src="./img/plus.png">
-        </div>
-        </div>
-        `;
+        let drinkContent = generateProductTemplate(drink);
         document.getElementById('non-alcoholic-drinks-div').insertAdjacentHTML("beforeend", drinkContent);
     });
 
 }
 
-
 function alcoholList() {
     alcohol.forEach(function (alc) {
-        let alcContent = `
-        <div id="alc-${alc.id}" class="${dishDiv}">
-        <div class="${titleDiv}">
-        <h3>${alc.title}</h3>
-        </div>
-        <div class="${descriptionDiv}">
-            <p>${alc.description}</p>
-        </div>
-        <div class="${variationDiv}">
-            <p>${alc.variation}</p>
-        </div>
-        <div class="${priceDiv}">
-            <p>${alc.price}€</p>
-        </div>
-        <div class="${btnDiv}">
-            <img class="${plusImg}" src="./img/plus.png">
-        </div>
-        </div>
-        `;
+        let alcContent = generateProductTemplate(alc);
         document.getElementById('alcoholic-drinks-div').insertAdjacentHTML("beforeend", alcContent);
     });
 }
 
-// ********** Get all Dishes from menu.js (JSON) End **********
+// ********** Get all Products from menu.js (JSON) End **********
 
-// ********** Dish Picker Extension Start **********
+// ********** Product Picker Extension Start **********
 
 function toggleExtension(id) {
-    let pop = findProductById(id);
-    console.log('Picked dish', pop);
-    console.log('ID is', 'extended-popular-' + pop.id);
-    toggleClass('extended-popular-' + pop.id, 'hide-extension');
+    let product = findProductById(id);
+    toggleClass('extended-product-' + product.id, 'hide-extension');
     //document.getElementById('plussymbol').classList.add('d-none'); // TODO
     //document.getElementById('xsymbol').classList.remove('d-none'); // TODO
 }
 
 function addAmount(id) {
-    let item = findProductById(id);
-    item.amount++;
-    document.getElementById('amount-counter-' + id).innerHTML = item.amount;
-    let overallPrice = printPrice(item);
+    let product = findProductById(id);
+    product.amount++;
+    document.getElementById('amount-counter-' + id).innerHTML = product.amount;
+    let overallPrice = printPrice(product);
     document.getElementById('overall-price-' + id).innerHTML = overallPrice + '€';
 }
 
 function removeAmount(id) {
-    let item = findProductById(id);
-
-    if (item.amount > 0) {
-        item.amount--;
+    let product = findProductById(id);
+    if (product.amount > 0) {
+        product.amount--;
     }
-    let overallPrice = printPrice(item);
+    let overallPrice = printPrice(product);
     document.getElementById('overall-price-' + id).innerHTML = overallPrice + '€';
-    document.getElementById('amount-counter-' + id).innerHTML = item.amount;
+    document.getElementById('amount-counter-' + id).innerHTML = product.amount;
 }
 
-// ********** Dish Picker Extension End **********
+// ********** Product Picker Extension End **********
 
-// ********** Get all Dishes from menu.js (JSON) End **********
 
 // ********** Info Blend Start **********
 
@@ -292,7 +161,7 @@ function infoDiv() {
 
 // ********** Shopping Cart Section start **********
 
-// ********** Get all selected Dishes from shoopingcart(JSON) start **********
+// ********** Get all selected Products from shoopingcart(JSON) start **********
 
 // **** Pushing in Cart Start ****
 
@@ -301,56 +170,53 @@ let shoppingCart = [
 ];
 
 function addToCart(id) {
-    let item = findProductById(id);
-    let itemClone = JSON.parse(JSON.stringify(item));
+    let product = findProductById(id);
+    let productClone = JSON.parse(JSON.stringify(product));
 
-    // Check if item exists in shopping cart already
-    let itemInCart = shoppingCart.find((product) => {
+    // Check if product exists in shopping cart already
+    let productInCart = shoppingCart.find((product) => {
         return product.id == id;
     });
-    if (itemInCart) {
+    if (productInCart) {
         // Just refresh amount
-        itemInCart.amount = itemInCart.amount + itemClone.amount;
+        productInCart.amount = productInCart.amount + productClone.amount;
     } else {
-        // Regulary add selected item to cart
-        shoppingCart.push(itemClone);
+        // Regulary add selected product to cart
+        shoppingCart.push(productClone);
     }
-    console.log('Shopping cart items are:', shoppingCart);
-
     updateShoppingCart();
     updateTotalCosts();
 
-    item.amount = 0;
+    // Reset Amount and Price to 0 in product menu after pushing
+    product.amount = 0;
     document.getElementById('overall-price-' + id).innerHTML = '0.00€';
     document.getElementById('amount-counter-' + id).innerHTML = '0';
 }
 
 
 function addShoppingCartProductAmount(id) {
-    let item = findShoppingCartItemById(id);
-    item.amount++;
-    document.getElementById('foodAmountCart-' + id).innerHTML = item.amount + 'x';
-    document.getElementById('overall-shopping-cart-price-' + id).innerHTML = printPrice(item) + '€';
+    let product = findShoppingCartItemById(id);
+    product.amount++;
+    document.getElementById('foodAmountCart-' + id).innerHTML = product.amount + 'x';
+    document.getElementById('overall-shopping-cart-price-' + id).innerHTML = printPrice(product) + '€';
     updateTotalCosts();
 }
 
 function removeShoppingCartProductAmount(id) {
-    let item = findShoppingCartItemById(id);
-    if (item.amount > 0) {
-        item.amount--;
+    let product = findShoppingCartItemById(id);
+    if (product.amount > 0) {
+        product.amount--;
     }
-
-    console.log('ID is', 'foodAmountCart-' + id);
-    document.getElementById('foodAmountCart-' + id).innerHTML = item.amount + 'x';
-    document.getElementById('overall-shopping-cart-price-' + id).innerHTML = printPrice(item) + '€';
+    document.getElementById('foodAmountCart-' + id).innerHTML = product.amount + 'x';
+    document.getElementById('overall-shopping-cart-price-' + id).innerHTML = printPrice(product) + '€';
     updateTotalCosts();
 }
 
 function updateTotalCosts() {
     let subtotal = 0;
 
-    shoppingCart.forEach((item) => {
-        subtotal += item.price * item.amount;
+    shoppingCart.forEach((product) => {
+        subtotal += product.price * product.amount;
     });
 
     let delivery_costs = 4.00;
@@ -410,7 +276,7 @@ function updateShoppingCart() {
     }
 }
 
-// ********** Get all selected Dishes from shoopingcart(JSON) End **********
+// ********** Get all selected Product from shoopingcart(JSON) End **********
 
 // ********** Shopping Cart Section End **********
 
