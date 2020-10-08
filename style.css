@@ -14,7 +14,7 @@ body {
 }
 
 .main-product-page {
-    width: 80vw;
+    width: 80%;
     height: 1600vh;
 }
 
@@ -147,8 +147,7 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-.order-Category-div {
+.overall-order-category-div {
     height: 10vh;
     width: 100%;
     background-color: rgb(236, 232, 225);
@@ -156,6 +155,15 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 3px 3px -3px rgb(88, 88, 88);
+}
+
+.order-Category-div {
+    height: 10vh;
+    width: calc(100% - 64px);
+    background-color: rgb(236, 232, 225);
+    display: flex;
+    align-items: center;
+    justify-content: start;
     white-space: nowrap;
     overflow-y: auto;
     position: sticky;
@@ -176,8 +184,8 @@ body {
 }
 
 .order-Category-div a {
-    margin-right: 8px;
-    margin-left: 8px;
+    margin-right: 6px;
+    margin-left: 6px;
     text-decoration: none;
     color: rgb(7, 2, 29);
     font-size: 16px;
@@ -479,7 +487,7 @@ body {
 /* ******** ShoppingCart-Section-Start ********  */
 
 .shoppingCart-section {
-    width: 20vw;
+    width: 20%;
     max-width: 100%;
     height: 100vh;
     position: fixed;
@@ -668,7 +676,7 @@ body {
 
 @media (max-width: 1000px) {
     .main-product-page {
-        width: 100vw;
+        width: 100%;
         height: 1600vh;
     }
     /* ******** Responsive Header Section 1000px Start********  */
