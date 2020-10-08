@@ -232,6 +232,10 @@ function closeOrderDiv() {
     document.getElementById('sent-order-div').classList.add('d-none');
 }
 
+function closeInfoDiv() {
+    document.getElementById('infoDiv').classList.add('d-none');
+}
+
 // ********** Send Order Btn End **********
 
 

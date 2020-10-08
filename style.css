@@ -54,6 +54,7 @@ body {
 .titel-div h2 {
     color: rgb(7, 2, 29);
     margin: 0;
+    font-size: 20px;
 }
 
 .titel-div p {
@@ -103,12 +104,28 @@ body {
 }
 
 .infoDiv {
-    height: 60vh;
+    height: 40vh;
     overflow-y: auto;
     width: 60vw;
     background-color: rgb(244, 243, 251);
     border-radius: 16px !important;
     padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dk-img {
+    height: 100px;
+    width: 200px;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.infoDiv span {
+text-align: center;
+margin-bottom: 16px;
 }
 
 .d-none {
@@ -446,14 +463,13 @@ body {
     width: 60vw;
     background-color: rgb(244, 243, 251);
     border-radius: 16px !important;
-    padding: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.order-info-Div p {
+.order-info-Div span {
     font-size: 20px;
 }
 
