@@ -163,7 +163,7 @@
                         <p id="costs-subtotal">0,00€</p>
                         <p id="costs-delivery">4,00€</p>
                         <p id="costs-discount">0,00€</p>
-                        <p id="costs-voucher">-0,00€</p>
+                        <p id="costs-voucher">0,00€</p>
                         <p id="costs-total" style="color: rgb(50,50,50) !important;">0,00€</p>
                     </div>
                 </div>
@@ -186,6 +186,16 @@
         <div id="infoDiv" class="d-none">
             <div class="info" id="info-blend">
                 <div class="infoDiv">
+                </div>
+            </div>
+        </div>
+
+        <div id="sent-order-div" class="d-none">
+            <div class="order-info" id="info-blend">
+                <div class="order-info-div">
+                    <img class="cute-burrito-img" src="./img/cute_burrito.png">
+                    <p>Your Order is on the way!</p>
+                    <button onclick="closeOrderDiv()" class="close-btn">Close</button>
                 </div>
             </div>
         </div>

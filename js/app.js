@@ -16,57 +16,43 @@ let chosenDishDiv = 'chosen-dish-div'
 // ********** Onload Function Start **********
 
 function init() {
-    updateDishes();
+    updateProducts();
     updateShoppingCart();
-    scrollingChange();
+
     document.getElementById("order-btn").disabled = true; 
 }
 
 // ********** Onload Function End **********
 
-// ********** Category OnScroll Start **********
-
-function scrollingChange() {
-    window.onscroll = () => {
-        if (window.scrollY > 400) {
-            document.getElementById('order-category-div').classList.add('onscroll-category-order-div');
-        } else {
-            document.getElementById('order-category-div').classList.remove('onscroll-category-order-div');
-        }
-    }
-}
-
-// ********** Category OnScroll End **********
-
 // ********** Get all Products from menu.js (JSON) Start **********
 
-function updateDishes() {
-    popularDishes();
-    saladDishes();
-    burritoDishes();
-    bowlDishes();
-    veganDishes();
-    siderDishes();
-    dessertDishes();
-    drinksList();
-    alcoholList();
+function updateProducts() {
+    popularProducts();
+    saladProducts();
+    burritoProducts();
+    bowlProducts();
+    veganProducts();
+    sideProducts();
+    dessertProducts();
+    drinkProducts();
+    alcoholProducts();
 }
 
-function popularDishes() {
+function popularProducts() {
     popular.forEach((pop) => {
         let popContent = generateProductTemplate(pop);
         document.getElementById('popular-div').insertAdjacentHTML("beforeend", popContent);
     });
 }
 
-function saladDishes() {
+function saladProducts() {
     salads.forEach((salad) => {
         let saladContent = generateProductTemplate(salad);
         document.getElementById('salads-div').insertAdjacentHTML("beforeend", saladContent);
     });
 }
 
-function burritoDishes() {
+function burritoProducts() {
     burritos.forEach((burrito) => {
         let burritoContent = generateProductTemplate(burrito);
         document.getElementById('burritos-div').insertAdjacentHTML("beforeend", burritoContent);
@@ -74,21 +60,21 @@ function burritoDishes() {
     });
 }
 
-function bowlDishes() {
+function bowlProducts() {
     bowls.forEach((bowl) => {
         let bowlContent = generateProductTemplate(bowl);
         document.getElementById('bowls-div').insertAdjacentHTML("beforeend", bowlContent);
     });
 }
 
-function veganDishes() {
+function veganProducts() {
     vegan.forEach(function (veg) {
         let veganContent = generateProductTemplate(veg);
         document.getElementById('vegan-div').insertAdjacentHTML("beforeend", veganContent);
     });
 }
 
-function siderDishes() {
+function sideProducts() {
     sideDish.forEach(function (side) {
         let siderContent = generateProductTemplate(side);
         document.getElementById('siders-div').insertAdjacentHTML("beforeend", siderContent);
@@ -96,14 +82,14 @@ function siderDishes() {
 
 }
 
-function dessertDishes() {
+function dessertProducts() {
     desserts.forEach(function (dessert) {
         let dessertContent = generateProductTemplate(dessert);
         document.getElementById('desserts-div').insertAdjacentHTML("beforeend", dessertContent);
     });
 }
 
-function drinksList() {
+function drinkProducts() {
     drinks.forEach(function (drink) {
         let drinkContent = generateProductTemplate(drink);
         document.getElementById('non-alcoholic-drinks-div').insertAdjacentHTML("beforeend", drinkContent);
@@ -111,7 +97,7 @@ function drinksList() {
 
 }
 
-function alcoholList() {
+function alcoholProducts() {
     alcohol.forEach(function (alc) {
         let alcContent = generateProductTemplate(alc);
         document.getElementById('alcoholic-drinks-div').insertAdjacentHTML("beforeend", alcContent);
@@ -126,8 +112,6 @@ function toggleExtension(id) {
     let product = findProductById(id);
     toggleClass('extended-product-' + product.id, 'hide-extension');
     toggleClass('plussymbol-' + product.id, 'plus-img-rotate');
-    //document.getElementById('plussymbol').classList.add('d-none'); // TODO
-    //document.getElementById('xsymbol').classList.remove('d-none'); // TODO
 }
 
 function addAmount(id) {
@@ -156,8 +140,6 @@ function removeAmount(id) {
 function infoDiv() {
     document.getElementById('infoDiv').classList.remove('d-none');
 }
-
-
 
 // ********** Info Blend End **********
 
@@ -236,6 +218,18 @@ function updateShoppingCart() {
 function sendOrder() {
     shoppingCart.products.splice(0,shoppingCart.products.length);
     updateShoppingCart();
+    document.getElementById('sent-order-div').classList.remove('d-none');
+
+    document.getElementById('current-discount').innerHTML = '0.00' + '%';
+    document.getElementById('costs-subtotal').innerHTML = '0.00' + '€';
+    document.getElementById('costs-delivery').innerHTML = '0.00' + '€';
+    document.getElementById('costs-discount').innerHTML = '0.00'+ '€';
+    document.getElementById('costs-voucher').innerHTML = '0.00' + '€';
+    document.getElementById('costs-total').innerHTML = '0.00' + '€';
+}
+
+function closeOrderDiv() {
+    document.getElementById('sent-order-div').classList.add('d-none');
 }
 
 // ********** Send Order Btn End **********

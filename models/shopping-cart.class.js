@@ -2,7 +2,7 @@ class ShoppingCart {
     constructor() {
         this.products = [];
         this.subtotal = 0;
-        this.delivery = 4;
+        this.delivery = 0;
         this.discount = 0.1;
         this.voucher = 5;
         this.total_bill = 4;
@@ -69,21 +69,30 @@ class ShoppingCart {
 
     updateCosts() {
         let subtotal = 0;
+        let total_bill = 0;
+        let discount_value = 0;
+        let voucher = this.voucher;
         this.products.forEach((product) => {
             subtotal += product.price * product.amount;
         });
-
         let delivery_costs = 4.00;
-        let total_bill = subtotal + delivery_costs;
-        let discount_value = this.discount * total_bill;
-        total_bill -= discount_value;
-        total_bill -= this.voucher;
-
+        if (subtotal != 0) {
+            total_bill = subtotal + delivery_costs;
+            discount_value = this.discount * total_bill;
+            total_bill -= discount_value;
+            total_bill -= voucher;
+        } else {
+            voucher = 0;
+        }
         document.getElementById('current-discount').innerHTML = (this.discount * 100) + '%';
         document.getElementById('costs-subtotal').innerHTML = subtotal.toFixed(2) + '€';
         document.getElementById('costs-delivery').innerHTML = delivery_costs.toFixed(2) + '€';
         document.getElementById('costs-discount').innerHTML = discount_value.toFixed(2) + '€';
-        document.getElementById('costs-voucher').innerHTML = this.voucher.toFixed(2) + '€';
+        if (voucher != 0) {
+            document.getElementById('costs-voucher').innerHTML = '-' + voucher.toFixed(2) + '€';
+        } else {
+            document.getElementById('costs-voucher').innerHTML = voucher.toFixed(2) + '€';
+        }
         document.getElementById('costs-total').innerHTML = total_bill.toFixed(2) + '€';
     }
 }
