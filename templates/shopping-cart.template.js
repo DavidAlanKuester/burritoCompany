@@ -12,8 +12,8 @@ function generateShoppingCartProductTemplate(product) {
                 <span>+</span>
             </div>
             </div>
-            <span style="font-size: 12px;" >${product.title}</span>
-            <span style="font-size: 12px;" id="overall-shopping-cart-price-${product.id}">${printPrice(product)}€</span>
+            <span style="font-size: 10px;" >${product.title}</span>
+            <span style="font-size: 10px;" id="overall-shopping-cart-price-${product.id}">${printPrice(product)}€</span>
             <img style="cursor: pointer;" onclick="deleteFromShoppingCart(${product.id})" class="${trashImg}" src="./img/trash.png">
             </div>`;
 

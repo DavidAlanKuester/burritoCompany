@@ -124,8 +124,8 @@ body {
 }
 
 .infoDiv span {
-text-align: center;
-margin-bottom: 16px;
+    text-align: center;
+    margin-bottom: 16px;
 }
 
 .d-none {
@@ -164,6 +164,7 @@ margin-bottom: 16px;
     align-items: center;
     justify-content: center;
 }
+
 .overall-order-category-div {
     height: 10vh;
     width: 100%;
@@ -172,6 +173,11 @@ margin-bottom: 16px;
     align-items: center;
     justify-content: center;
     box-shadow: 0 3px 3px -3px rgb(88, 88, 88);
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 11;
 }
 
 .order-Category-div {
@@ -183,8 +189,6 @@ margin-bottom: 16px;
     justify-content: start;
     white-space: nowrap;
     overflow-y: auto;
-    position: sticky;
-    top: 0;
     z-index: 11;
 }
 
@@ -579,6 +583,7 @@ margin-bottom: 16px;
     width: 100%;
     justify-content: start;
     align-items: start;
+    height: 34vh;
 }
 
 .bill-div {
@@ -731,7 +736,20 @@ margin-bottom: 16px;
     .order-Category-div a {
         font-size: 12px;
     }
+    .addToCartBtn {
+        width: 128px;
+    }
+    .input-order-field {
+        width: 196px;
+        font-size: 10px;
+    }
     /* ******** Responsive Order Section 1000px End ********  */
+    /* ******** Responsive Footer Section 1000px Start ********  */
+    .footer-section {
+        bottom: 20vh;
+        z-index: 2;
+    }
+    /* ******** Responsive Footer Section 1000px End ********  */
     /* ******** Responsive Shopping Cart Section 1000px Start********  */
     .shoppingCart-section {
         width: 100vw;
@@ -787,8 +805,8 @@ margin-bottom: 16px;
         border-right: 1px solid rgb(217, 217, 221);
     }
     .bill-div-children p {
-        margin-top: 4px;
-        margin-bottom: 4px;
+        margin-top: 2px;
+        margin-bottom: 0px;
     }
     .responsive-order-btn {
         width: 33%;
@@ -823,6 +841,19 @@ margin-bottom: 16px;
         height: 16px;
         width: 16px;
         object-fit: cover;
+    }
+    .bill-div-children {
+        display: flex;
+        flex-direction: column;
+        color: rgb(162, 162, 167);
+        font-size: 12px;
+    }
+    .no-order-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        margin-top: 12px;
     }
     /* ******** Responsive Shopping Cart Section 1000px End********  */
 }
@@ -873,7 +904,225 @@ margin-bottom: 16px;
         width: 24px;
         object-fit: cover;
     }
+    .information-Btn {
+        height: 32px;
+        width: 32px;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(247, 245, 242);
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .dish-div-title-div h3 {
+        color: rgb(7, 2, 29);
+        font-size: 20px;
+        font-weight: 500;
+        margin: unset;
+    }
+    .dish-div-description-div p {
+        color: rgb(75, 75, 77);
+        font-size: 12px;
+        font-weight: 100;
+        margin: unset;
+    }
+    .dish-div-variation-div p {
+        color: rgb(75, 75, 77);
+        font-size: 10px;
+        font-weight: 100;
+        margin: unset;
+    }
+    .dish-div-btn-div {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 32px;
+        width: 32px;
+        border: 1px solid rgb(217, 217, 221);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: transparent;
+        border-right: transparent;
+        z-index: 3;
+    }
+    .plus-img {
+        height: 20px;
+        width: 20px;
+        transition: 500ms;
+    }
     /* ******** Responsive Header Section 600px End********  */
+    /* ******** Responsive Order Section 600px Start********  */
+    .addToCartBtn {
+        width: 72px;
+        margin: 4px;
+    }
+    .input-order-field {
+        width: 128px;
+        font-size: 10px;
+        height: 32px;
+    }
+
+    .number-box {
+        display: flex;
+        border: 1px solid rgb(217, 217, 221);
+        background-color: white;
+        width: 72px;
+        height: 24px;
+    }
+
+    .number-box-div {
+        height: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: rgb(94, 94, 97);
+        font-weight: 700;
+    }
+    /* ******** Responsive Order Section 600px End********  */
+    /* ******** Responsive Shopping Cart Section 600px Start********  */
+    .no-order-div p {
+        font-size: 10px;
+        font-weight: 100;
+        text-align: center;
+        color: rgb(162, 162, 167);
+        margin-bottom: 32px;
+    }
+    /* ******** Responsive Shopping Cart Section 600px End********  */
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+        font-size: 12px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .titel-div h2 {
+        font-size: 12px;
+    }
+    .logo-div {
+        position: absolute;
+        height: 12vh;
+        width: 20vw;
+        border-radius: 100%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 40vw;
+        bottom: 6.5vh;
+    }
+    .dish-div-title-div h3 {
+        color: rgb(7, 2, 29);
+        font-size: 16px;
+        font-weight: 500;
+        margin: unset;
+    }
+    .dish-div-btn-div {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 24px;
+        width: 24px;
+        border: 1px solid rgb(217, 217, 221);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: transparent;
+        border-right: transparent;
+        z-index: 3;
+    }
+    .dish-div-title-div {
+        margin-top: 8px;
+        margin-left: 16px;
+        margin-right: 28px;
+    }
+    .dish-div-description-div p {
+        color: rgb(75, 75, 77);
+        font-size: 10px;
+        font-weight: 100;
+        margin: unset;
+    }
+    .plus-img {
+        height: 16px;
+        width: 16px;
+        transition: 500ms;
+    }
+    .dish-div-price-div p {
+        font-size: 24px;
+        font-weight: 100;
+        color: orange;
+        margin: unset;
+    }
+
+    .input-order-field {
+        width: 72px;
+        font-size: 8px;
+        height: 32px;
+    }
+
+    .addToCartBtn {
+        width: 64px;
+        margin: 0;
+    }
+
+    .number-box {
+        display: flex;
+        border: 1px solid rgb(217, 217, 221);
+        background-color: white;
+        width: 48px;
+        height: 16px;
+    }
+
+    .number-box-div {
+        height: 16px;
+        width: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: rgb(94, 94, 97);
+        font-weight: 700;
+    }
+
+    .bill-div-children {
+        display: flex;
+        flex-direction: column;
+        color: rgb(162, 162, 167);
+        font-size: 10px;
+    }
+    .no-order-div p {
+        font-size: 8px;
+        font-weight: 100;
+        text-align: center;
+        color: rgb(162, 162, 167);
+        margin-bottom: 32px;
+    }
+    .order-btn h3 {
+        font-size: 14px;
+    }
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+        font-size: 10px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .bill-div-children {
+        display: flex;
+        flex-direction: column;
+        color: rgb(162, 162, 167);
+        font-size: 8px;
+    }
 }
 
 /* ********Responsive End ********  */
