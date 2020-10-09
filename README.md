@@ -1,5 +1,5 @@
 # Burrito Company
-Welcome to Burrito Company! This is a shopping cart model that can serve as a basis for further apps.
+Welcome to Burrito Company! This is a shopping cart model that can serve as a basis for further apps. It is made with vanillaJS, CSS and HTML.
 
 ## What is Burrito Company?
 BurritoCompany is a shopping-cart-system where you can choose multiple products out of the menu and add them to a shopping cart. The system calculates the price (minus discount and voucher) and gives out the total Bill.
