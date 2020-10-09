@@ -1,4 +1,4 @@
-// JSON of all Dishes
+// All product objects
 
 let popular  = [
     new Product('0', 'Mayan Avocado Salad', 'Fresh salad with mixed vegetables and lemon juiced avocado', 'Variatons: Chipotle-tomato sauce, Habanero sauce, more avoacado', 6.99),

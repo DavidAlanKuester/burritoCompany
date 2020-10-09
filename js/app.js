@@ -1,4 +1,4 @@
-// ********** Variables for Dishes start **********
+// ********** Variables for Products start **********
 
 let dishDiv = 'dish-div';
 let titleDiv = 'dish-div-title-div';
@@ -18,13 +18,12 @@ let chosenDishDiv = 'chosen-dish-div'
 function init() {
     updateProducts();
     updateShoppingCart();
-
     document.getElementById("order-btn").disabled = true; 
 }
 
 // ********** Onload Function End **********
 
-// ********** Get all Products from menu.js (JSON) Start **********
+// ********** Get all Products from menu.js  Start **********
 
 function updateProducts() {
     popularProducts();
@@ -104,7 +103,7 @@ function alcoholProducts() {
     });
 }
 
-// ********** Get all Products from menu.js (JSON) End **********
+// ********** Get all Products from menu.js End **********
 
 // ********** Product Picker Extension Start **********
 
@@ -134,7 +133,6 @@ function removeAmount(id) {
 
 // ********** Product Picker Extension End **********
 
-
 // ********** Info Blend Start **********
 
 function infoDiv() {
@@ -145,7 +143,7 @@ function infoDiv() {
 
 // ********** Shopping Cart Section start **********
 
-// ********** Get all selected Products from shoopingcart(JSON) start **********
+// ********** Get all selected Products from shopping cart start **********
 
 // **** Pushing in Cart Start ****
 
@@ -178,10 +176,9 @@ function updateTotalCosts() {
     shoppingCart.updateCosts();
 }
 
-/**
- * Removes an item from the shpping cart 
- * @param {string} id - Id of the Product that should be removed
- */
+
+//  Removes an item from the shopping cart 
+
 function deleteFromShoppingCart(id) {
     shoppingCart.removeProduct(id);
     updateShoppingCart();
@@ -190,7 +187,7 @@ function deleteFromShoppingCart(id) {
 
 // **** Pushing in Cart End ****
 
-// ********** Get all selected Dishes from shoopingcart(JSON) start **********
+// ********** Updating shopping cart start **********
 
 function updateShoppingCart() {
     document.getElementById('chosen-dishes').innerHTML = '';
@@ -209,17 +206,14 @@ function updateShoppingCart() {
     }
 }
 
-// ********** Get all selected Product from shoopingcart(JSON) End **********
-
+// ********** Updating shopping cart End **********
 
 // ********** Send Order Btn Start **********
-
 
 function sendOrder() {
     shoppingCart.products.splice(0,shoppingCart.products.length);
     updateShoppingCart();
     document.getElementById('sent-order-div').classList.remove('d-none');
-
     document.getElementById('current-discount').innerHTML = '0.00' + '%';
     document.getElementById('costs-subtotal').innerHTML = '0.00' + '€';
     document.getElementById('costs-delivery').innerHTML = '0.00' + '€';
@@ -238,6 +232,4 @@ function closeInfoDiv() {
 
 // ********** Send Order Btn End **********
 
-
 // ********** Shopping Cart Section End **********
-

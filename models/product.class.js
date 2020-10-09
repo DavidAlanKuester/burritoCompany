@@ -1,3 +1,5 @@
+// class model for product
+
 class Product {
   constructor(id, title, description, variation, price) {
     this.id = id;

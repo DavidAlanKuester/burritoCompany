@@ -1,3 +1,5 @@
+// class model for product
+
 class ShoppingCart {
     constructor() {
         this.products = [];
@@ -8,6 +10,8 @@ class ShoppingCart {
         this.total_bill = 4;
     }
 
+    // All functions for displaying and calculating the shopping cart section
+
     findById(id) {
         let product = shoppingCart.products.find((p) => {
             return id == p.id;
@@ -15,20 +19,18 @@ class ShoppingCart {
         return product;
     }
 
-    /**
-     * 
-     * @param {*} id - ID of the item that shall be removed form shopping cart
-     */
+
+    //   Gets ID of the item that shall be removed from shopping cart
+
     removeProduct(id) {
         this.products = this.products.filter((p) => {
             return p.id != id;
         });
     }
 
-    /**
-     * 
-     * @param {Product} product - Instance which should be added 
-     */
+
+    //  Instance which should be added 
+
     addProduct(product) {
         let productClone = JSON.parse(JSON.stringify(product));
 
@@ -44,9 +46,9 @@ class ShoppingCart {
             // Regulary add selected product to cart
             shoppingCart.products.push(productClone);
         }
-
     }
 
+    // Increases amount. Gets ID of the product that shoud be increased
     addProductAmount(id) {
         let product = shoppingCart.findById(id);
         product.amount++;
@@ -54,10 +56,7 @@ class ShoppingCart {
         document.getElementById('overall-shopping-cart-price-' + product.id).innerHTML = printPrice(product) + '€';
     }
 
-    /**
-     * 
-     * @param {int} id - ID of the product that shoud be decreased
-     */
+    // Decreases amount. Gets ID of the product that shoud be decreased
     removeProductAmount(id) {
         let product = this.findById(id);
         if (product.amount > 0) {
@@ -67,6 +66,7 @@ class ShoppingCart {
         document.getElementById('overall-shopping-cart-price-' + product.id).innerHTML = printPrice(product) + '€';
     }
 
+    //Calculates all numbers and the total bill
     updateCosts() {
         let subtotal = 0;
         let total_bill = 0;
