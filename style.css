@@ -698,7 +698,7 @@ body {
 @media (max-width: 1000px) {
     .main-product-page {
         width: 100%;
-        height: 1600vh;
+        height: 1500vh;
     }
     /* ******** Responsive Header Section 1000px Start********  */
     .titel-div {
@@ -793,6 +793,29 @@ body {
         padding-right: 8px;
         width: calc(33% - 8px) !important;
     }
+
+    .chosen-dish-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 32px;
+        width: 100%;
+    }
+
+.chosen-dish-div span {
+    font-size: 8px !important;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.trash-img {
+    height: 12px;
+    width: 12px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
     .bill-div {
         display: flex;
         justify-content: space-between;
@@ -859,6 +882,11 @@ body {
 }
 
 @media (max-width: 600px) {
+
+    .main-product-page {
+    width: 100%;
+    height: 1300vh;
+}
     /* ******** Responsive Header Section 600px Start********  */
     .header-section {
         display: flex;
@@ -973,6 +1001,13 @@ body {
         height: 24px;
     }
 
+    .trash-img {
+        height: 10px;
+        width: 10px;
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+
     .number-box-div {
         height: 24px;
         width: 24px;
@@ -992,6 +1027,31 @@ body {
         color: rgb(162, 162, 167);
         margin-bottom: 32px;
     }
+
+    .chosen-dish-div span {
+        font-size: 6px !important;
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+    .number-box-cart {
+        display: flex;
+        width: 24px;
+        height: 8px;
+        margin-right: 2px;
+    }
+
+    .number-box-div-cart {
+        height: 8px;
+        width: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+        font-weight: 300;
+        color: rgb(94, 94, 97);
+
+    }
+
     /* ******** Responsive Shopping Cart Section 600px End********  */
     .footer-section a {
         color: white;
@@ -1059,6 +1119,12 @@ body {
         font-weight: 100;
         color: orange;
         margin: unset;
+    }
+
+    .chosen-dish-div span {
+        font-size: 4px !important;
+        margin-right: 2px;
+        margin-left: 2px;
     }
 
     .input-order-field {
